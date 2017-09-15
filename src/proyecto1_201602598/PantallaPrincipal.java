@@ -68,6 +68,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         btnlogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnlogin.setText("Login");
+        btnlogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloginActionPerformed(evt);

@@ -27,13 +27,95 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtid = new javax.swing.JTextField();
+        txtapellido = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
+        txtrol = new javax.swing.JTextField();
+        txtuser = new javax.swing.JTextField();
+        txtpass = new javax.swing.JPasswordField();
+        txtcpass = new javax.swing.JPasswordField();
+        btnbuscar = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btnvolver = new javax.swing.JButton();
         lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setText("Eliminar Usuarios");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jLabel2.setText("ID");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+
+        jLabel3.setText("Nombre");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        jLabel4.setText("Apellido");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+
+        jLabel5.setText("Contraseña");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+
+        jLabel6.setText("Confirmar Contraseña");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+
+        jLabel7.setText("Rol");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+
+        jLabel8.setText("User");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        txtid.setColumns(12);
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+
+        txtapellido.setColumns(12);
+        txtapellido.setEnabled(false);
+        getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+
+        txtnombre.setColumns(12);
+        txtnombre.setEnabled(false);
+        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+
+        txtrol.setColumns(12);
+        txtrol.setEnabled(false);
+        getContentPane().add(txtrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+
+        txtuser.setColumns(12);
+        txtuser.setEnabled(false);
+        getContentPane().add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
+
+        txtpass.setColumns(12);
+        txtpass.setEnabled(false);
+        getContentPane().add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+
+        txtcpass.setColumns(12);
+        txtcpass.setEnabled(false);
+        getContentPane().add(txtcpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+
+        btnbuscar.setText("Buscar");
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
+
+        btncancelar.setText("Cancelar");
+        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+
+        btneliminar.setText("Eliminar");
+        getContentPane().add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+
+        btnvolver.setText("Volver");
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 430, 500));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 280, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,6 +156,25 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btncancelar;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnvolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblfondo;
+    private javax.swing.JTextField txtapellido;
+    private javax.swing.JPasswordField txtcpass;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtnombre;
+    private javax.swing.JPasswordField txtpass;
+    private javax.swing.JTextField txtrol;
+    private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }
