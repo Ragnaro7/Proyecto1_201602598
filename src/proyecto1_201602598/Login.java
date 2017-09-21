@@ -5,6 +5,8 @@
  */
 package proyecto1_201602598;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Hector
@@ -34,10 +36,10 @@ PantallaPrincipal pal=new PantallaPrincipal();
         lblusuario = new javax.swing.JLabel();
         lblpass = new javax.swing.JLabel();
         txtusuario = new javax.swing.JTextField();
-        txtpass = new javax.swing.JPasswordField();
-        btningresar = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         lblimguser = new javax.swing.JLabel();
+        btningresar = new javax.swing.JButton();
+        txtpassw = new javax.swing.JPasswordField();
         lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,12 +63,6 @@ PantallaPrincipal pal=new PantallaPrincipal();
         txtusuario.setColumns(12);
         getContentPane().add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
 
-        txtpass.setColumns(12);
-        getContentPane().add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
-
-        btningresar.setText("Ingresar");
-        getContentPane().add(btningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
-
         btncancelar.setText("Cancelar");
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +73,17 @@ PantallaPrincipal pal=new PantallaPrincipal();
 
         lblimguser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/loginuser.png"))); // NOI18N
         getContentPane().add(lblimguser, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+
+        btningresar.setText("Ingresar");
+        btningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btningresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        txtpassw.setColumns(12);
+        getContentPane().add(txtpassw, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 210));
@@ -94,9 +101,24 @@ PantallaPrincipal pal=new PantallaPrincipal();
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
         
-        txtpass.setText("");
+        txtpassw.setText("");
         txtusuario.setText("");
     }//GEN-LAST:event_btncancelarActionPerformed
+
+    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
+        // TODO add your handling code here:
+        char[] arrayc=txtpassw.getPassword();
+        String pass=new String(arrayc);
+        
+        if((txtusuario.getText().equals("admin") && pass.equals("admin"))){
+            Usuario_Administrador ua=new Usuario_Administrador();
+            ua.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        
+    }//GEN-LAST:event_btningresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,7 +163,7 @@ PantallaPrincipal pal=new PantallaPrincipal();
     private javax.swing.JLabel lblimguser;
     private javax.swing.JLabel lblpass;
     private javax.swing.JLabel lblusuario;
-    private javax.swing.JPasswordField txtpass;
+    private javax.swing.JPasswordField txtpassw;
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
 }

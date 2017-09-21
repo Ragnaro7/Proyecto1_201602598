@@ -16,6 +16,7 @@ public class Usuario_Administrador extends javax.swing.JFrame {
      */
     public Usuario_Administrador() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -61,6 +62,11 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         getContentPane().add(btnver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         btncrear1.setText("Crear");
@@ -84,6 +90,13 @@ public class Usuario_Administrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+        // TODO add your handling code here:
+        Login l=new Login();
+        this.setVisible(false);
+        l.setVisible(true);
+    }//GEN-LAST:event_btnvolverActionPerformed
 
     /**
      * @param args the command line arguments
