@@ -10,12 +10,14 @@ package proyecto1_201602598;
  * @author Hector
  */
 public class Ver_Usuarios extends javax.swing.JFrame {
+Usuario ua=new Usuario();
 
     /**
      * Creates new form Ver_Usuarios
      */
     public Ver_Usuarios() {
         initComponents();
+        
     }
 
     /**
@@ -29,7 +31,9 @@ public class Ver_Usuarios extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         txtusuarios = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtlista = new javax.swing.JTextArea();
+        btnvolver = new javax.swing.JButton();
+        btnprueba = new javax.swing.JButton();
         lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,17 +42,73 @@ public class Ver_Usuarios extends javax.swing.JFrame {
         jLabel1.setText("Ver Usuarios");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 24, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        txtusuarios.setViewportView(jTextArea1);
+        txtlista.setColumns(20);
+        txtlista.setRows(5);
+        txtusuarios.setViewportView(txtlista);
 
-        getContentPane().add(txtusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 270, 290));
+        getContentPane().add(txtusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 270, 290));
+
+        btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+
+        btnprueba.setText("jButton1");
+        btnprueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpruebaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnprueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+        // TODO add your handling code here:
+        Usuario_Administrador ua=new Usuario_Administrador();
+        ua.setVisible(true);
+        ua.setVisible(false);
+    }//GEN-LAST:event_btnvolverActionPerformed
+
+    private void btnpruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpruebaActionPerformed
+        // TODO add your handling code here:
+        
+        for(int i=0;i<Proyecto1_201602598.longi;i++){
+            
+         String q=new String(Usuario.obUsuario(i));
+          txtlista.append("\n");
+           txtlista.append(q);
+        }
+        
+            //String[] w=ua.obUsuario();
+            //txtlista.append(w[i]);
+            //txtlista.append("\\n");
+            
+            /*String[]w=Usuario.obUsuario();
+            for(int r=0;r<Usuario.longi;r++){
+                           String w2=new String(w[r]);
+            
+            txtlista.append(w2); 
+            }*/
+
+        
+        
+       /* for(int i=1;i<Usuario.longi;i++){
+            
+           // txtlista.append(ua.obUsuario(i));
+           System.out.println(ua.obUsuario(i-1));
+            
+        }*/
+        
+        
+    }//GEN-LAST:event_btnpruebaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -86,9 +146,11 @@ public class Ver_Usuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnprueba;
+    private javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblfondo;
+    private javax.swing.JTextArea txtlista;
     private javax.swing.JScrollPane txtusuarios;
     // End of variables declaration//GEN-END:variables
 }

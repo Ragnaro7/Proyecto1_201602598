@@ -8,19 +8,36 @@ package proyecto1_201602598;
 public class Usuario {
 
 //private String []id,nombre,apellido,user,rol,pass;
-    private String usuario[];
-public static int longi=1;
-public static int longadm=1;
-public static int longnormal=1;
+    
 private boolean log;
 
 public Usuario(){
+   
+}
+
+public static void setUsuario(String id,String nombre,String apellido,String user,String rol,String pass){
     
-  
+   
+    Proyecto1_201602598.usuario[Proyecto1_201602598.longi]=id+","+nombre+","+apellido+","+user+","+rol+","+pass;
+     Proyecto1_201602598.longi++;
+    
     
 }
 
+public static String obUsuario(int i){
+   
+    String a=new String(Proyecto1_201602598.usuario[i]);
+    return a+","+String.valueOf(Proyecto1_201602598.longi);
+   
+    
+    //String a=new String(usuario[longi-2]);
+    //return a+" "+String.valueOf(longi);
+    
+}
 
+public static int l(){
+    return  Proyecto1_201602598.usuario.length;
+}
 
 
     

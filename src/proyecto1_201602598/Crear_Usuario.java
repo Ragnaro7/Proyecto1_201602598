@@ -5,17 +5,22 @@
  */
 package proyecto1_201602598;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Hector
  */
 public class Crear_Usuario extends javax.swing.JFrame {
+    Usuario u=new Usuario();
 
+//Usuario u=new Usuario();
     /**
      * Creates new form Crear_Usuario
      */
     public Crear_Usuario() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -97,12 +102,27 @@ public class Crear_Usuario extends javax.swing.JFrame {
         getContentPane().add(txtrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
         btncrear.setText("Crear");
+        btncrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncrearActionPerformed(evt);
+            }
+        });
         getContentPane().add(btncrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
         btncancelar.setText("Cancelar");
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
         btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
@@ -110,6 +130,56 @@ public class Crear_Usuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+        // TODO add your handling code here:
+        Usuario_Administrador ua=new Usuario_Administrador();
+        ua.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnvolverActionPerformed
+
+    private void btncrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearActionPerformed
+        // TODO add your handling code here:
+       
+        String a=new String(txtpass.getPassword());
+       String b=new String(txtcpass.getPassword());
+       
+        if(a.equals(b)){
+        
+        Usuario.setUsuario(txtid.getText(), txtnombre.getText(), txtapellido.getText(), 
+                txtuser.getText(), txtrol.getText(), a);
+        
+        JOptionPane.showMessageDialog(null, "Usuario agregado");
+      
+        int k=0;
+        for(int i=0;i<Proyecto1_201602598.longi;i++){
+            
+            String w=u.obUsuario(k);
+            System.out.println(w+","+u.l());
+            System.out.println(+u.l());
+            k++;
+        }
+        
+        
+        }else{
+            JOptionPane.showMessageDialog(null, "La contraseña no es la misma");
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_btncrearActionPerformed
+
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
+        // TODO add your handling code here:
+        txtnombre.setText("");
+        txtapellido.setText("");
+        txtid.setText("");
+        txtuser.setText("");
+        txtrol.setText("");
+        txtpass.setText("");
+        txtcpass.setText("");
+    }//GEN-LAST:event_btncancelarActionPerformed
 
     /**
      * @param args the command line arguments

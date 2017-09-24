@@ -50,6 +50,11 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         getContentPane().add(lblusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         btncrear.setText("Crear");
+        btncrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncrearActionPerformed(evt);
+            }
+        });
         getContentPane().add(btncrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         btnmodificar.setText("Modificar");
@@ -59,6 +64,11 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         getContentPane().add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
 
         btnver.setText("Ver");
+        btnver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnverActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         btnvolver.setText("Volver");
@@ -97,6 +107,21 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         this.setVisible(false);
         l.setVisible(true);
     }//GEN-LAST:event_btnvolverActionPerformed
+
+    private void btncrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Crear_Usuario cu=new Crear_Usuario();
+        cu.setVisible(true);
+    }//GEN-LAST:event_btncrearActionPerformed
+
+    private void btnverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverActionPerformed
+        // TODO add your handling code here:
+        Ver_Usuarios vu=new Ver_Usuarios();
+        this.setVisible(false);
+        vu.setVisible(true);
+        
+    }//GEN-LAST:event_btnverActionPerformed
 
     /**
      * @param args the command line arguments
