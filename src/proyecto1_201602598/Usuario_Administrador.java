@@ -61,6 +61,11 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         getContentPane().add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
 
         btnver.setText("Ver");
@@ -122,6 +127,13 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         vu.setVisible(true);
         
     }//GEN-LAST:event_btnverActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        // TODO add your handling code here:
+        Eliminar_Usuario eu=new Eliminar_Usuario();
+        eu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btneliminarActionPerformed
 
     /**
      * @param args the command line arguments

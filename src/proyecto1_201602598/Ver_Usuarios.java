@@ -30,8 +30,6 @@ Usuario ua=new Usuario();
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtusuarios = new javax.swing.JScrollPane();
-        txtlista = new javax.swing.JTextArea();
         btnvolver = new javax.swing.JButton();
         btnprueba = new javax.swing.JButton();
         lblfondo = new javax.swing.JLabel();
@@ -41,12 +39,6 @@ Usuario ua=new Usuario();
 
         jLabel1.setText("Ver Usuarios");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 24, -1, -1));
-
-        txtlista.setColumns(20);
-        txtlista.setRows(5);
-        txtusuarios.setViewportView(txtlista);
-
-        getContentPane().add(txtusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 270, 290));
 
         btnvolver.setText("Volver");
         btnvolver.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +57,7 @@ Usuario ua=new Usuario();
         getContentPane().add(btnprueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 470));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,18 +66,30 @@ Usuario ua=new Usuario();
         // TODO add your handling code here:
         Usuario_Administrador ua=new Usuario_Administrador();
         ua.setVisible(true);
-        ua.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_btnvolverActionPerformed
 
     private void btnpruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpruebaActionPerformed
         // TODO add your handling code here:
         
+        
+        int k=0;
         for(int i=0;i<Proyecto1_201602598.longi;i++){
+           
             
-         String q=new String(Usuario.obUsuario(i));
-          txtlista.append("\n");
-           txtlista.append(q);
+    
+            
+            String w=Usuario.obUsuario(k);
+            System.out.println(w+","+Usuario.l());
+            System.out.println(+Usuario.l());
+            k++;
         }
+            
+            
+         //String q=new String(Usuario.obUsuario(i));
+          /*txtlista.append("\n");
+           txtlista.append(q);*/
+        
         
             //String[] w=ua.obUsuario();
             //txtlista.append(w[i]);
@@ -150,7 +154,5 @@ Usuario ua=new Usuario();
     private javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblfondo;
-    private javax.swing.JTextArea txtlista;
-    private javax.swing.JScrollPane txtusuarios;
     // End of variables declaration//GEN-END:variables
 }
