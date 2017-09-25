@@ -16,6 +16,7 @@ public class Modificar_Usuario extends javax.swing.JFrame {
      */
     public Modificar_Usuario() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -45,6 +46,7 @@ public class Modificar_Usuario extends javax.swing.JFrame {
         btncrear = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         btnvolver = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,6 +107,9 @@ public class Modificar_Usuario extends javax.swing.JFrame {
         btnvolver.setText("Volver");
         getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
+        btnbuscar.setText("Buscar");
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
+
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 340));
 
@@ -147,6 +152,7 @@ public class Modificar_Usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btncrear;
     private javax.swing.JButton btnvolver;

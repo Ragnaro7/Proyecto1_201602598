@@ -156,9 +156,10 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
             
+        boolean msj=false;
         
         for(int i=0;i<Proyecto1_201602598.longi;i++){
-        
+            
             String a=new String(Proyecto1_201602598.usuario[i]);
             String coordenadas[]=a.split(",");
             
@@ -170,12 +171,18 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
                     txtpass.setText(coordenadas[5]);
                      txtcpass.setText(coordenadas[5]);
                      k=i;
-                     
-            }else{
+                     msj=true;
+                            
+            }/*else{
                 JOptionPane.showMessageDialog(null, "Este usuario no existe");
-                break;
-            }
+                
+            }*/
             
+        } //for
+        
+        if(msj==false){
+            JOptionPane.showMessageDialog(null, "Este usuario no existe");
+                
         }
         
        // nombre,apellido,user,rol

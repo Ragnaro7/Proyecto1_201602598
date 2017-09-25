@@ -6,6 +6,8 @@
 package proyecto1_201602598;
 
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
 
 /**
  *
@@ -140,11 +142,24 @@ public class Crear_Usuario extends javax.swing.JFrame {
 
     private void btncrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearActionPerformed
         // TODO add your handling code here:
-       
+       boolean existente=false;
         String a=new String(txtpass.getPassword());
        String b=new String(txtcpass.getPassword());
        
-        if(a.equals(b)){
+       for(int i=0;i<Proyecto1_201602598.longi;i++){
+       String c=new String(Proyecto1_201602598.usuario[i]);
+       String coo[]=c.split(",");
+       
+       if((a.equals(b))&& (txtid.getText().equals(coo[0]))){
+           JOptionPane.showMessageDialog(null, "Este ID ya existe", "ID", WARNING_MESSAGE);
+           existente=true;
+       }
+       
+       }//for
+       
+       
+       
+        if((a.equals(b))&&(existente==false)){
         
         Usuario.setUsuario(txtid.getText(), txtnombre.getText(), txtapellido.getText(), 
                 txtuser.getText(), txtrol.getText(), a);
@@ -161,8 +176,8 @@ public class Crear_Usuario extends javax.swing.JFrame {
         }
         
         
-        }else{
-            JOptionPane.showMessageDialog(null, "La contraseña no es la misma");
+        }else if(!(a.equals(b))&&(existente==false)){
+            JOptionPane.showMessageDialog(null, "La contraseña no es la misma","Contraseña erronea",ERROR_MESSAGE);
         }
         
         

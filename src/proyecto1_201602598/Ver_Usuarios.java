@@ -5,18 +5,47 @@
  */
 package proyecto1_201602598;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hector
  */
 public class Ver_Usuarios extends javax.swing.JFrame {
 Usuario ua=new Usuario();
+DefaultTableModel modelo;
 
     /**
      * Creates new form Ver_Usuarios
      */
     public Ver_Usuarios() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        modelo=new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("User");
+        modelo.addColumn("Rol");
+        modelo.addColumn("Password");
+        this.tabladatos.setModel(modelo);
+        
+        
+        int cantidadfilas=tabladatos.getRowCount();
+        for(int j=cantidadfilas-1;j>=0;j--){
+            modelo.removeRow(j);
+        }
+        
+        
+        for(int i=0;i<Proyecto1_201602598.longi;i++){
+            
+        String dividido=new String(Proyecto1_201602598.usuario[i]);
+        String coordenadas[]=dividido.split(",");
+        modelo.addRow(coordenadas);
+        
+        }
+        
+        
         
     }
 
@@ -31,7 +60,8 @@ Usuario ua=new Usuario();
 
         jLabel1 = new javax.swing.JLabel();
         btnvolver = new javax.swing.JButton();
-        btnprueba = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabladatos = new javax.swing.JTable();
         lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,15 +76,22 @@ Usuario ua=new Usuario();
                 btnvolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
 
-        btnprueba.setText("jButton1");
-        btnprueba.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpruebaActionPerformed(evt);
+        tabladatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
             }
-        });
-        getContentPane().add(btnprueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        ));
+        jScrollPane1.setViewportView(tabladatos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 320));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 470));
@@ -68,51 +105,6 @@ Usuario ua=new Usuario();
         ua.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnvolverActionPerformed
-
-    private void btnpruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpruebaActionPerformed
-        // TODO add your handling code here:
-        
-        
-        int k=0;
-        for(int i=0;i<Proyecto1_201602598.longi;i++){
-           
-            
-    
-            
-            String w=Usuario.obUsuario(k);
-            System.out.println(w+","+Usuario.l());
-            System.out.println(+Usuario.l());
-            k++;
-        }
-            
-            
-         //String q=new String(Usuario.obUsuario(i));
-          /*txtlista.append("\n");
-           txtlista.append(q);*/
-        
-        
-            //String[] w=ua.obUsuario();
-            //txtlista.append(w[i]);
-            //txtlista.append("\\n");
-            
-            /*String[]w=Usuario.obUsuario();
-            for(int r=0;r<Usuario.longi;r++){
-                           String w2=new String(w[r]);
-            
-            txtlista.append(w2); 
-            }*/
-
-        
-        
-       /* for(int i=1;i<Usuario.longi;i++){
-            
-           // txtlista.append(ua.obUsuario(i));
-           System.out.println(ua.obUsuario(i-1));
-            
-        }*/
-        
-        
-    }//GEN-LAST:event_btnpruebaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,9 +142,10 @@ Usuario ua=new Usuario();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnprueba;
     private javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblfondo;
+    private javax.swing.JTable tabladatos;
     // End of variables declaration//GEN-END:variables
 }
