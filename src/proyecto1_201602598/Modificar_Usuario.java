@@ -5,12 +5,17 @@
  */
 package proyecto1_201602598;
 
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+
 /**
  *
  * @author Hector
  */
 public class Modificar_Usuario extends javax.swing.JFrame {
-
+int k;
     /**
      * Creates new form Modificar_Usuario
      */
@@ -43,8 +48,8 @@ public class Modificar_Usuario extends javax.swing.JFrame {
         txtpass = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         txtcpass = new javax.swing.JPasswordField();
-        btncrear = new javax.swing.JButton();
-        btncancelar = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btnlimpiar = new javax.swing.JButton();
         btnvolver = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         lblfondo = new javax.swing.JLabel();
@@ -98,23 +103,121 @@ public class Modificar_Usuario extends javax.swing.JFrame {
         txtcpass.setColumns(12);
         getContentPane().add(txtcpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, 20));
 
-        btncrear.setText("Crear");
-        getContentPane().add(btncrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
-        btncancelar.setText("Cancelar");
-        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+        btnlimpiar.setText("Limpiar");
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
 
         btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         btnbuscar.setText("Buscar");
-        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 340));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        // TODO add your handling code here:
+        
+        boolean msj=false;
+        
+        for(int i=0;i<Proyecto1_201602598.longi;i++){
+            
+            String a=new String(Proyecto1_201602598.usuario[i]);
+            String coordenadas[]=a.split(",");
+            
+            if(txtid.getText().equals(coordenadas[0])){
+                txtnombre.setText(coordenadas[1]);
+                 txtapellido.setText(coordenadas[2]);
+                  txtuser.setText(coordenadas[3]);
+                   txtrol.setText(coordenadas[4]);
+                    txtpass.setText(coordenadas[5]);
+                     txtcpass.setText(coordenadas[5]);
+                     k=i;
+                     msj=true;
+                     txtid.setEditable(false);
+            }/*else{
+                JOptionPane.showMessageDialog(null, "Este usuario no existe");
+                
+            }*/
+            
+        } //for
+        
+        if(msj==false){
+            JOptionPane.showMessageDialog(null, "Este usuario no existe");
+                
+        }
+        
+        
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        // TODO add your handling code here:
+       
+        boolean existente=false;
+        String a=new String(txtpass.getPassword());
+       String b=new String(txtcpass.getPassword());
+       
+       if(a.equals(b)){
+           
+           
+        char[] arra=txtpass.getPassword();
+        String p=new String(arra);
+        Usuario.setUsuario(k, txtid.getText(), txtnombre.getText(), txtapellido.getText(), txtuser.getText(), txtrol.getText(), p);
+        JOptionPane.showMessageDialog(null, "Usuario Actualizado","Modificar",INFORMATION_MESSAGE);
+           
+           
+       }else{
+           JOptionPane.showMessageDialog(null, "La contraseña no es la misma", "Validacion", ERROR_MESSAGE);
+       }
+       
+       
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+        // TODO add your handling code here:
+        Usuario_Administrador ua=new Usuario_Administrador();
+        ua.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnvolverActionPerformed
+
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+        // TODO add your handling code here:
+        txtid.setEditable(true);
+        txtid.setText(null);
+        txtapellido.setText(null);
+        txtnombre.setText(null);
+        txtcpass.setText(null);
+        txtpass.setText(null);
+        txtrol.setText(null);
+        txtuser.setText(null);
+        
+    }//GEN-LAST:event_btnlimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,8 +256,8 @@ public class Modificar_Usuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btncancelar;
-    private javax.swing.JButton btncrear;
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

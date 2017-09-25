@@ -6,6 +6,7 @@
 package proyecto1_201602598;
 
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
 
 /**
  *
@@ -195,7 +196,7 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
         Usuario.setUsuario(k);
-        
+        JOptionPane.showMessageDialog(null, "Usuario Eliminado", "Aviso", WARNING_MESSAGE);
     }//GEN-LAST:event_btneliminarActionPerformed
 
     /**

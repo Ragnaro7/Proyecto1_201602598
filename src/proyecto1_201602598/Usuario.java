@@ -15,6 +15,15 @@ public Usuario(){
    
 }
 
+public static void setUsuario(int i,String id,String nombre,String apellido,String user,String rol,String pass){
+    
+   
+    Proyecto1_201602598.usuario[i]=id+","+nombre+","+apellido+","+user+","+rol+","+pass;
+ 
+    
+    
+}
+
 public static void setUsuario(String id,String nombre,String apellido,String user,String rol,String pass){
     
    
