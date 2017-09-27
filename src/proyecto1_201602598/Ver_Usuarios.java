@@ -41,7 +41,11 @@ DefaultTableModel modelo;
             
         String dividido=new String(Proyecto1_201602598.usuario[i]);
         String coordenadas[]=dividido.split(",");
-        modelo.addRow(coordenadas);
+        
+        
+        if(!(coordenadas[0].equals(""))){
+            modelo.addRow(coordenadas);
+        }
         
         }
         

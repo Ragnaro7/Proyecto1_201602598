@@ -34,7 +34,8 @@ public static void setUsuario(String id,String nombre,String apellido,String use
 }
 
 public static void setUsuario(int i){
-    Proyecto1_201602598.usuario[i]=""+","+""+","+""+","+""+","+""+","+"";
+    //Proyecto1_201602598.usuario[i]=""+","+""+","+""+","+""+","+""+","+"";
+      Proyecto1_201602598.usuario[i]="";
 }
 
 

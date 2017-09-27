@@ -16,6 +16,7 @@ public class Crear_Bibliografia extends javax.swing.JFrame {
      */
     public Crear_Bibliografia() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,16 +40,40 @@ public class Crear_Bibliografia extends javax.swing.JFrame {
         getContentPane().add(btnmasiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         btnindividual.setText("Carga Individual");
+        btnindividual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnindividualActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnindividual, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
 
         btnvolver.setText("Volver");
-        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+        // TODO add your handling code here:
+        Usuario_Administrador ua=new Usuario_Administrador();
+        ua.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnvolverActionPerformed
+
+    private void btnindividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnindividualActionPerformed
+        // TODO add your handling code here:
+        Carga_Individual ci=new Carga_Individual();
+        ci.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnindividualActionPerformed
 
     /**
      * @param args the command line arguments

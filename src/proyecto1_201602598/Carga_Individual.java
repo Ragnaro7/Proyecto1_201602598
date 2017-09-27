@@ -16,6 +16,7 @@ public class Carga_Individual extends javax.swing.JFrame {
      */
     public Carga_Individual() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -100,7 +101,7 @@ public class Carga_Individual extends javax.swing.JFrame {
         jLabel13.setText("Disponible");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
 
-        combotipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combotipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Libro", "Revista", "Tesis" }));
         getContentPane().add(combotipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
 
         txtedicion.setColumns(12);
@@ -158,6 +159,10 @@ public class Carga_Individual extends javax.swing.JFrame {
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
         // TODO add your handling code here:
+        Crear_Bibliografia cb=new Crear_Bibliografia();
+        cb.setVisible(true);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_btnvolverActionPerformed
 
     /**

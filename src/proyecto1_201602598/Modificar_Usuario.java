@@ -169,7 +169,7 @@ int k;
         } //for
         
         if(msj==false){
-            JOptionPane.showMessageDialog(null, "Este usuario no existe");
+            JOptionPane.showMessageDialog(null, "Este usuario no existe","Aviso",WARNING_MESSAGE);
                 
         }
         

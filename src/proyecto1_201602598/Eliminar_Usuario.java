@@ -56,8 +56,9 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Eliminar Usuarios");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel2.setText("ID");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
@@ -120,10 +121,15 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
 
-        btncancelar.setText("Cancelar");
-        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+        btncancelar.setText("Limpiar");
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, -1));
 
         btneliminar.setText("Eliminar");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -139,10 +145,10 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
                 btnvolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 310, 390));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 330, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -182,7 +188,7 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
         } //for
         
         if(msj==false){
-            JOptionPane.showMessageDialog(null, "Este usuario no existe");
+            JOptionPane.showMessageDialog(null, "Este usuario no existe","Aviso",WARNING_MESSAGE);
                 
         }
         
@@ -197,7 +203,32 @@ public class Eliminar_Usuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         Usuario.setUsuario(k);
         JOptionPane.showMessageDialog(null, "Usuario Eliminado", "Aviso", WARNING_MESSAGE);
+        
+        txtid.setText(null);
+        txtapellido.setText(null);
+        txtnombre.setText(null);
+        txtcpass.setText(null);
+        txtpass.setText(null);
+        txtrol.setText(null);
+        txtuser.setText(null);
+        
+        
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        txtid.setText(null);
+        txtapellido.setText(null);
+        txtnombre.setText(null);
+        txtcpass.setText(null);
+        txtpass.setText(null);
+        txtrol.setText(null);
+        txtuser.setText(null);
+        
+        
+    }//GEN-LAST:event_btncancelarActionPerformed
 
     /**
      * @param args the command line arguments
