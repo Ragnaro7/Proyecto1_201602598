@@ -5,6 +5,8 @@
  */
 package proyecto1_201602598;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Hector
@@ -43,7 +45,7 @@ public class Carga_Individual extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         combotipo = new javax.swing.JComboBox<>();
         txtedicion = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtautor = new javax.swing.JTextField();
         txttitulo = new javax.swing.JTextField();
         txtdescripcion = new javax.swing.JTextField();
         txtpalabrasclave = new javax.swing.JTextField();
@@ -107,8 +109,8 @@ public class Carga_Individual extends javax.swing.JFrame {
         txtedicion.setColumns(12);
         getContentPane().add(txtedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
-        jTextField2.setColumns(12);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+        txtautor.setColumns(12);
+        getContentPane().add(txtautor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
         txttitulo.setColumns(12);
         getContentPane().add(txttitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
@@ -138,6 +140,11 @@ public class Carga_Individual extends javax.swing.JFrame {
         getContentPane().add(txttemas, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         btncargar.setText("Cargar");
+        btncargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncargarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         btncancelar.setText("Cancelar");
@@ -164,6 +171,37 @@ public class Carga_Individual extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_btnvolverActionPerformed
+
+    private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
+        // TODO add your handling code here:
+        
+        int indice=combotipo.getSelectedIndex();
+         Libro libro=new Libro();
+        switch(indice){
+            case(0): 
+                //Libro libro=new Libro();
+                int r=Integer.parseInt(txtedicion.getText());
+                String a=txtpalabrasclave.getText();
+                String[] palcla1=a.split(";");
+                String g=txttemas.getText();
+                String[] temas=g.split(";");
+                
+                
+                libro.setBibliografia(txtautor.getText(), txttitulo.getText(), Integer.parseInt(txtedicion.getText()), 
+                        palcla1, txtdescripcion.getText(), temas, txtcopias.getText(), 
+                        Integer.parseInt(txtdisponible.getText()));
+                
+                JOptionPane.showMessageDialog(null, "Cargado "+String.valueOf(indice));
+                    
+        }
+        
+        for(int i=0;i<libro.lon();i++){
+            
+            //System.out.println(libro.obBibliografia());
+            System.out.println(libro.obBibliografia(i));
+        }
+        
+    }//GEN-LAST:event_btncargarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,9 +256,9 @@ public class Carga_Individual extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblfondo;
     private javax.swing.JTextField txtarea;
+    private javax.swing.JTextField txtautor;
     private javax.swing.JTextField txtcopias;
     private javax.swing.JTextField txtdescripcion;
     private javax.swing.JTextField txtdisponible;

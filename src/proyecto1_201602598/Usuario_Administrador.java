@@ -104,6 +104,11 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         getContentPane().add(btneliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         btnver1.setText("Ver");
+        btnver1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnver1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
         Bibliografica.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -161,6 +166,14 @@ public class Usuario_Administrador extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btncrear1ActionPerformed
+
+    private void btnver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnver1ActionPerformed
+        // TODO add your handling code here:
+        Ver_Bibliografia vb=new Ver_Bibliografia();
+        
+        this.setVisible(false);
+        vb.setVisible(true);
+    }//GEN-LAST:event_btnver1ActionPerformed
 
     /**
      * @param args the command line arguments
