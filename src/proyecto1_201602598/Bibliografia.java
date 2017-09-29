@@ -3,8 +3,9 @@ package proyecto1_201602598;
 
 public class Bibliografia {
 
-    private static String[] bibliografia;
-    private static int longibibliografia=1;
+    public static String[] bibliografia;
+    public static int longibibliografia=0;
+    public static int longirevista=0;
     
 /*private static String autor;
 private static String titulo;
@@ -46,14 +47,18 @@ public int obLongi(){
     return longibibliografia;
 }
 
-public void setBibliografia(String autor,String titulo,int edicion,String[] palcla,String descripcion,
-        String[] temas,String copias,int disponibles){
+public void setBibliografia(String autor,String titulo,int edicion,String palcla,String descripcion,
+        String temas,int copias,int disponibles){
     
     bibliografia[longibibliografia]=autor+";"+titulo+";"+edicion+";"+palcla+";"+descripcion+";"+temas
             +";"+copias+";"+disponibles;
-    this.aumentarLongi();
-    
-}
+    //this.aumentarLongi();
+    longibibliografia++;
+}//libro
+
+
+
+
 
 public String[] obBibliografia(){
     return bibliografia;

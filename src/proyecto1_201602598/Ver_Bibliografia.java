@@ -12,15 +12,15 @@ import javax.swing.table.DefaultTableModel;
  * @author Hector
  */
 public class Ver_Bibliografia extends javax.swing.JFrame {
-Libro b=new Libro();
 DefaultTableModel modelo;
 
     /**
-     * Creates new form Ver_Usuarios
+     * Creates new form Ver_Bibliografia
      */
     public Ver_Bibliografia() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
         modelo=new DefaultTableModel();
         modelo.addColumn("Autor");
         modelo.addColumn("Titulo");
@@ -29,30 +29,29 @@ DefaultTableModel modelo;
         modelo.addColumn("Descripcion");
         modelo.addColumn("Temas");
         modelo.addColumn("Copias");
-        modelo.addColumn("Disponibles");
+        modelo.addColumn("Disponible");
+        this.tablabiblio.setModel(modelo);
         
-        this.tablabi.setModel(modelo);
         
-        
-        int cantidadfilas=tablabi.getRowCount();
+        int cantidadfilas=tablabiblio.getRowCount();
         for(int j=cantidadfilas-1;j>=0;j--){
             modelo.removeRow(j);
         }
         
         
-        for(int i=0;i<b.obLongi();i++){
-            
-        //String dividido=new String(b.obBibliografia(i));
-        //String coordenadas[]=dividido.split(";");
-        modelo.addRow(b.obBibliografia());
         
-        /*if(!(coordenadas[0].equals(""))){
-            modelo.addRow(coordenadas);
-        }*/
-        
+        for(int i=0;i<Bibliografia.longibibliografia;i++){
+            String aux=Bibliografia.bibliografia[i];
+            String[] coo=aux.split(";");
+            modelo.addRow(coo);
         }
         
         
+        /*for(int i=0;i<Revista.longibibliografia;i++){
+            String aux2=Revista.bibliografia[i];
+            String[] coo2=aux2.split(";");
+            modelo.addRow(coo2);
+        }*/
         
     }
 
@@ -65,17 +64,14 @@ DefaultTableModel modelo;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         btnvolver = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablabi = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablabiblio = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Ver Usuarios");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 24, -1, -1));
 
         btnvolver.setText("Volver");
         btnvolver.addActionListener(new java.awt.event.ActionListener() {
@@ -83,9 +79,9 @@ DefaultTableModel modelo;
                 btnvolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
-        tablabi.setModel(new javax.swing.table.DefaultTableModel(
+        tablabiblio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -96,21 +92,27 @@ DefaultTableModel modelo;
 
             }
         ));
-        jScrollPane2.setViewportView(tablabi);
+        jScrollPane1.setViewportView(tablabiblio);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 420, 350));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 570, 340));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Ver Bibliografia");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 470));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
         // TODO add your handling code here:
+        
         Usuario_Administrador ua=new Usuario_Administrador();
         ua.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnvolverActionPerformed
 
     /**
@@ -139,7 +141,6 @@ DefaultTableModel modelo;
             java.util.logging.Logger.getLogger(Ver_Bibliografia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -152,8 +153,8 @@ DefaultTableModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblfondo;
-    private javax.swing.JTable tablabi;
+    private javax.swing.JTable tablabiblio;
     // End of variables declaration//GEN-END:variables
 }

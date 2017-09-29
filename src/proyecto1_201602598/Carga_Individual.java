@@ -12,13 +12,29 @@ import javax.swing.JOptionPane;
  * @author Hector
  */
 public class Carga_Individual extends javax.swing.JFrame {
-
+Bibliografia b=new Bibliografia(); 
+Revista r=new Revista();
     /**
      * Creates new form Carga_Individual
      */
     public Carga_Individual() {
         initComponents();
         this.setLocationRelativeTo(null);
+         
+    }
+    
+    private void limpiar(){
+        txtarea.setText(null);
+        txtautor.setText(null);
+        txtcopias.setText(null);
+        txtdescripcion.setText(null);
+        txtdisponible.setText(null);
+        txtedicion.setText(null);
+        txtejemplares.setText(null);
+        txtfrecuencia.setText(null);
+        txtpalabrasclave.setText(null);
+        txttemas.setText(null);
+        txttitulo.setText(null);
     }
 
     /**
@@ -174,31 +190,49 @@ public class Carga_Individual extends javax.swing.JFrame {
 
     private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
         // TODO add your handling code here:
-        
+     
         int indice=combotipo.getSelectedIndex();
-         Libro libro=new Libro();
-        switch(indice){
+       //  Libro libro=new Libro();
+      
+       switch(indice){
             case(0): 
                 //Libro libro=new Libro();
-                int r=Integer.parseInt(txtedicion.getText());
-                String a=txtpalabrasclave.getText();
-                String[] palcla1=a.split(";");
+               // int r=Integer.parseInt(txtedicion.getText());
+                
+                /*String a=txtpalabrasclave.getText();
+                String[] palcla1=a.split(",");
                 String g=txttemas.getText();
-                String[] temas=g.split(";");
-                
-                
-                libro.setBibliografia(txtautor.getText(), txttitulo.getText(), Integer.parseInt(txtedicion.getText()), 
-                        palcla1, txtdescripcion.getText(), temas, txtcopias.getText(), 
+                String[] temas=g.split(",");*/
+           
+                /*txtfrecuencia.setEditable(false);
+                txtarea.setEditable(false);
+                txtejemplares.setEditable(false);
+                txtfrecuencia.setEnabled(false);*/
+                b.setBibliografia(txtautor.getText(), txttitulo.getText(), Integer.parseInt(txtedicion.getText()), 
+                        txtpalabrasclave.getText(), txtdescripcion.getText(), txttemas.getText(), 
+                        Integer.parseInt(txtcopias.getText()), 
                         Integer.parseInt(txtdisponible.getText()));
                 
-                JOptionPane.showMessageDialog(null, "Cargado "+String.valueOf(indice));
+                JOptionPane.showMessageDialog(null, "Libro Cargado");
+                break;
                     
+                
+            case(1):
+                
+                //txtarea.setEditable(false);
+                r.setRevista(txtautor.getText(), txttitulo.getText(), Integer.parseInt(txtedicion.getText()), txtpalabrasclave.getText(), txtdescripcion.getText(), txttemas.getText(), Integer.parseInt(txtcopias.getText()), Integer.parseInt(txtdisponible.getText()), txtfrecuencia.getText(), Integer.parseInt(txtejemplares.getText()));
+                JOptionPane.showMessageDialog(null, "Revista Cargada");
+                break;
+                
+                
+                
         }
         
-        for(int i=0;i<libro.lon();i++){
+        for(int i=0;i<b.obLongi();i++){
             
             //System.out.println(libro.obBibliografia());
-            System.out.println(libro.obBibliografia(i));
+            System.out.println(b.obBibliografia(i));
+          
         }
         
     }//GEN-LAST:event_btncargarActionPerformed
