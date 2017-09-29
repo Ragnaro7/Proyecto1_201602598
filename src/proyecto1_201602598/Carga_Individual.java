@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class Carga_Individual extends javax.swing.JFrame {
 Bibliografia b=new Bibliografia(); 
 Revista r=new Revista();
+Tesis t=new Tesis();
     /**
      * Creates new form Carga_Individual
      */
@@ -208,10 +209,15 @@ Revista r=new Revista();
                 txtarea.setEditable(false);
                 txtejemplares.setEditable(false);
                 txtfrecuencia.setEnabled(false);*/
-                b.setBibliografia(txtautor.getText(), txttitulo.getText(), Integer.parseInt(txtedicion.getText()), 
-                        txtpalabrasclave.getText(), txtdescripcion.getText(), txttemas.getText(), 
+                b.setBibliografia(0,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),Integer.parseInt(txtedicion.getText()),txttemas.getText(),"","","",
                         Integer.parseInt(txtcopias.getText()), 
                         Integer.parseInt(txtdisponible.getText()));
+                
+                
+                /*
+    bibliografia[longibibliografia]=0+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+""+";"+""+";"+""+";"+copias+";"+disponibles;*/
                 
                 JOptionPane.showMessageDialog(null, "Libro Cargado");
                 break;
@@ -220,8 +226,26 @@ Revista r=new Revista();
             case(1):
                 
                 //txtarea.setEditable(false);
-                r.setRevista(txtautor.getText(), txttitulo.getText(), Integer.parseInt(txtedicion.getText()), txtpalabrasclave.getText(), txtdescripcion.getText(), txttemas.getText(), Integer.parseInt(txtcopias.getText()), Integer.parseInt(txtdisponible.getText()), txtfrecuencia.getText(), Integer.parseInt(txtejemplares.getText()));
+                r.setRevista(1,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),Integer.parseInt(txtedicion.getText()),txttemas.getText(),
+                        txtfrecuencia.getText(),
+                        txtejemplares.getText(),"",
+                        Integer.parseInt(txtcopias.getText()), 
+                        Integer.parseInt(txtdisponible.getText()));
+                
                 JOptionPane.showMessageDialog(null, "Revista Cargada");
+                break;
+                
+            
+            case(2):
+                
+                t.setTesis(2,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),Integer.parseInt(txtedicion.getText()),txttemas.getText(),
+                         
+                        "", "",txtarea.getText(),Integer.parseInt(txtcopias.getText()),
+                        Integer.parseInt(txtdisponible.getText()));
+                
+                JOptionPane.showMessageDialog(null, "Tesis Cargada");
                 break;
                 
                 

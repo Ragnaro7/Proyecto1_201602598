@@ -47,11 +47,14 @@ public int obLongi(){
     return longibibliografia;
 }
 
-public void setBibliografia(String autor,String titulo,int edicion,String palcla,String descripcion,
-        String temas,int copias,int disponibles){
+public void setBibliografia(int tipo,String autor,String titulo,String descripcion,String palcla,int edicion,
+        String temas,String frecuencia,String ejemplares,String area,int copias,int disponibles){
     
-    bibliografia[longibibliografia]=autor+";"+titulo+";"+edicion+";"+palcla+";"+descripcion+";"+temas
-            +";"+copias+";"+disponibles;
+    //Tipo; Autor; Titulo; Descripción; Palabras Clave; Edición; 
+    //Temas; Frecuencia Actual; Ejemplares; Área; Copias; Disponibles
+    
+    bibliografia[longibibliografia]=0+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+""+";"+""+";"+""+";"+copias+";"+disponibles;
     //this.aumentarLongi();
     longibibliografia++;
 }//libro

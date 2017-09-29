@@ -22,14 +22,14 @@ DefaultTableModel modelo;
         this.setLocationRelativeTo(null);
         
         modelo=new DefaultTableModel();
+        modelo.addColumn("No");
         modelo.addColumn("Autor");
         modelo.addColumn("Titulo");
-        modelo.addColumn("Edicion");
-        modelo.addColumn("Palabras Clave");
         modelo.addColumn("Descripcion");
+        modelo.addColumn("Palabras Clave");
+        modelo.addColumn("Edicion");
         modelo.addColumn("Temas");
-        modelo.addColumn("Copias");
-        modelo.addColumn("Disponible");
+        
         this.tablabiblio.setModel(modelo);
         
         
@@ -44,6 +44,22 @@ DefaultTableModel modelo;
             String aux=Bibliografia.bibliografia[i];
             String[] coo=aux.split(";");
             modelo.addRow(coo);
+            
+        }
+        
+        
+        for(int i=0;i<Revista.longibibliografia;i++){
+            String aux=Revista.bibliografia[i];
+            String[] coo=aux.split(";");
+            modelo.addRow(coo);
+            
+        }
+        
+        for(int i=0;i<Tesis.longibibliografia;i++){
+            String aux=Tesis.bibliografia[i];
+            String[] coo=aux.split(";");
+            modelo.addRow(coo);
+            
         }
         
         
@@ -94,14 +110,14 @@ DefaultTableModel modelo;
         ));
         jScrollPane1.setViewportView(tablabiblio);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 570, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 840, 340));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Ver Bibliografia");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 410));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -9,6 +9,31 @@ package proyecto1_201602598;
  *
  * @author Hector
  */
-public class Tesis extends Bibliografia{
+public class Tesis{
+    public static String[] bibliografia;
+    public static int longibibliografia=0;
+    
+    public Tesis(){
+        bibliografia=new String[600];
+    }
+    
+   public void setTesis(int tipo, String autor, String titulo, String descripcion, String palcla, 
+            int edicion, String temas, String frecuencia, String ejemplares, String area, int copias, 
+            int disponibles) {
+        
+        bibliografia[longibibliografia]=1+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+""+";"+""+";"+area+";"+copias+";"+disponibles;
+    //this.aumentarLongi();
+    longibibliografia++;
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
