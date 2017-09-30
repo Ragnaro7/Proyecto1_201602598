@@ -21,7 +21,7 @@ public class Tesis{
             int edicion, String temas, String frecuencia, String ejemplares, String area, int copias, 
             int disponibles) {
         
-        bibliografia[longibibliografia]=1+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+        bibliografia[longibibliografia]=2+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
             +";"+""+";"+""+";"+area+";"+copias+";"+disponibles;
     //this.aumentarLongi();
     longibibliografia++;

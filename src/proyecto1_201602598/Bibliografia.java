@@ -60,7 +60,16 @@ public void setBibliografia(int tipo,String autor,String titulo,String descripci
 }//libro
 
 
-
+public void setBibliografia(int po,int tipo,String autor,String titulo,String descripcion,String palcla,int edicion,
+        String temas,String frecuencia,String ejemplares,String area,int copias,int disponibles){
+    
+    //Tipo; Autor; Titulo; Descripción; Palabras Clave; Edición; 
+    //Temas; Frecuencia Actual; Ejemplares; Área; Copias; Disponibles
+    
+    bibliografia[po]=0+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+""+";"+""+";"+""+";"+copias+";"+disponibles;
+    
+}
 
 
 public String[] obBibliografia(){
