@@ -41,24 +41,31 @@ DefaultTableModel modelo;
         
         
         for(int i=0;i<Bibliografia.longibibliografia;i++){
-            String aux=Bibliografia.bibliografia[i];
+            String aux=new String(Bibliografia.bibliografia[i]);
             String[] coo=aux.split(";");
+            
+            if(!(coo[0].equals(""))){
             modelo.addRow(coo);
+        }
             
         }
         
         
-        for(int i=0;i<Revista.longibibliografia;i++){
-            String aux=Revista.bibliografia[i];
+        for(int x=0;x<Revista.longibibliografia;x++){
+            String aux=new String(Revista.bibliografia[x]);
             String[] coo=aux.split(";");
+            if(!(coo[0].equals(""))){
             modelo.addRow(coo);
+        }
             
         }
         
-        for(int i=0;i<Tesis.longibibliografia;i++){
-            String aux=Tesis.bibliografia[i];
+        for(int y=0;y<Tesis.longibibliografia;y++){
+            String aux=new String(Tesis.bibliografia[y]);
             String[] coo=aux.split(";");
+            if(!(coo[0].equals(""))){
             modelo.addRow(coo);
+        }
             
         }
         
@@ -125,7 +132,7 @@ DefaultTableModel modelo;
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
         // TODO add your handling code here:
         
-        Usuario_Administrador ua=new Usuario_Administrador();
+       Usuario_Administrador ua=new Usuario_Administrador();
         ua.setVisible(true);
         this.setVisible(false);
         

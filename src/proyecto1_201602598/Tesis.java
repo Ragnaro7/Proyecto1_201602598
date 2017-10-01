@@ -10,16 +10,19 @@ package proyecto1_201602598;
  * @author Hector
  */
 public class Tesis{
-    public static String[] bibliografia;
+    public static String[] bibliografia=new String[600];
     public static int longibibliografia=0;
     
     public Tesis(){
-        bibliografia=new String[600];
+        //bibliografia=new String[600];
     }
     
-   public void setTesis(int tipo, String autor, String titulo, String descripcion, String palcla, 
-            int edicion, String temas, String frecuencia, String ejemplares, String area, int copias, 
-            int disponibles) {
+    public static void setTesis(int po){
+    bibliografia[po]="";
+}
+   public static void setTesis(int tipo, String autor, String titulo, String descripcion, String palcla, 
+            String edicion, String temas, String frecuencia, String ejemplares, String area, String copias, 
+            String disponibles) {
         
         bibliografia[longibibliografia]=2+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
             +";"+""+";"+""+";"+area+";"+copias+";"+disponibles;
@@ -28,7 +31,15 @@ public class Tesis{
         
     }
     
-    
+   public static void setTesis(int po,int tipo, String autor, String titulo, String descripcion, String palcla, 
+            String edicion, String temas, String frecuencia, String ejemplares, String area, String copias, 
+            String disponibles) {
+        
+        bibliografia[po]=2+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+""+";"+""+";"+area+";"+copias+";"+disponibles;
+   
+        
+    } 
     
     
     

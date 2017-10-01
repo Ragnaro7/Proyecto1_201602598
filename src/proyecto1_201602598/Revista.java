@@ -12,23 +12,37 @@ package proyecto1_201602598;
  */
 public class Revista{
     
-    public static String[] bibliografia;
+    public static String[] bibliografia=new String[600];
     public static int longibibliografia=0;
     
     public Revista(){
         
-        bibliografia=new String[600];
+        //bibliografia=new String[600];
     
     }
-
-    public void setRevista(int tipo, String autor, String titulo, String descripcion, String palcla, 
-            int edicion, String temas, String frecuencia, String ejemplares, String area, int copias, 
-            int disponibles) {
+    
+public static void setRevista(int po){
+    bibliografia[po]="";
+}
+    public static void setRevista(int tipo, String autor, String titulo, String descripcion, String palcla, 
+            String edicion, String temas, String frecuencia, String ejemplares, String area, String copias, 
+            String disponibles) {
         
         bibliografia[longibibliografia]=1+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
             +";"+frecuencia+";"+ejemplares+";"+""+";"+copias+";"+disponibles;
     //this.aumentarLongi();
     longibibliografia++;
+        
+    }
+    
+    public static void setRevista(int po,int tipo, String autor, String titulo, String descripcion, String palcla, 
+            String edicion, String temas, String frecuencia, String ejemplares, String area, String copias, 
+            String disponibles) {
+        
+        bibliografia[po]=1+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+frecuencia+";"+ejemplares+";"+""+";"+copias+";"+disponibles;
+  
+    
         
     }
     

@@ -3,10 +3,9 @@ package proyecto1_201602598;
 
 public class Bibliografia {
 
-    public static String[] bibliografia;
+    public static String[] bibliografia=new String[600];
     public static int longibibliografia=0;
-    public static int longirevista=0;
-    
+   
 /*private static String autor;
 private static String titulo;
 private static int edicion;
@@ -22,7 +21,7 @@ private static String area;*/
 
 public Bibliografia(){
     
-    bibliografia=new String[600];
+    //bibliografia=new String[600];
     
     /*autor="";
     titulo="";
@@ -47,8 +46,13 @@ public int obLongi(){
     return longibibliografia;
 }
 
-public void setBibliografia(int tipo,String autor,String titulo,String descripcion,String palcla,int edicion,
-        String temas,String frecuencia,String ejemplares,String area,int copias,int disponibles){
+public static void setBibliografia(int po){
+    bibliografia[po]="";
+}
+
+
+public static void setBibliografia(int tipo,String autor,String titulo,String descripcion,String palcla,String edicion,
+        String temas,String frecuencia,String ejemplares,String area,String copias,String disponibles){
     
     //Tipo; Autor; Titulo; Descripción; Palabras Clave; Edición; 
     //Temas; Frecuencia Actual; Ejemplares; Área; Copias; Disponibles
@@ -60,8 +64,8 @@ public void setBibliografia(int tipo,String autor,String titulo,String descripci
 }//libro
 
 
-public void setBibliografia(int po,int tipo,String autor,String titulo,String descripcion,String palcla,int edicion,
-        String temas,String frecuencia,String ejemplares,String area,int copias,int disponibles){
+public static void setBibliografia(int po,int tipo,String autor,String titulo,String descripcion,String palcla,String edicion,
+        String temas,String frecuencia,String ejemplares,String area,String copias,String disponibles){
     
     //Tipo; Autor; Titulo; Descripción; Palabras Clave; Edición; 
     //Temas; Frecuencia Actual; Ejemplares; Área; Copias; Disponibles

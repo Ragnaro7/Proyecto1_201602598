@@ -307,26 +307,69 @@ int valor;
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         // TODO add your handling code here:
-        Bibliografia b=new Bibliografia();
-  
+       /* Bibliografia b=new Bibliografia();
+        Revista r=new Revista();
+        Tesis t=new Tesis();*/
        switch(valor){
             
             case(0):
              
-                b.setBibliografia(k,0,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
-                        txtpalabrasclave.getText(),Integer.parseInt(txtedicion.getText()),txttemas.getText(),"","","",
-                        Integer.parseInt(txtcopias.getText()), 
-                        Integer.parseInt(txtdisponible.getText()));
+                Bibliografia.setBibliografia(k,0,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),txtedicion.getText(),txttemas.getText(),"","","",
+                        txtcopias.getText(), 
+                        txtdisponible.getText());
                 
-                JOptionPane.showMessageDialog(null, "Usuario actualizado");
+                JOptionPane.showMessageDialog(null, "Libro actualizado");
+                Limpiar();
+                break;
                 
+                
+                
+            case(1):
+                
+                Revista.setRevista(k,1,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),txtedicion.getText(),txttemas.getText(),
+                        txtfrecuencia.getText(),
+                        txtejemplares.getText(),"",
+                        txtcopias.getText(), 
+                        txtdisponible.getText());
+                
+                JOptionPane.showMessageDialog(null, "Revista Actualizada");
+                Limpiar();
+                break;
+                
+            case(2):
+            
+                Tesis.setTesis(k,2,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),txtedicion.getText(),txttemas.getText(),
+                         
+                        "", "",txtarea.getText(),txtcopias.getText(),
+                        txtdisponible.getText());
+                
+                JOptionPane.showMessageDialog(null, "Tesis Actualizada");
+                Limpiar();
                 break;
             
+                
         }
         
         
     }//GEN-LAST:event_btnmodificarActionPerformed
 
+    public void Limpiar(){
+        txttitulo.setText(null);
+                txtarea.setText(null);
+                txtautor.setText(null);
+                txtcopias.setText(null);
+                txtdescripcion.setText(null);
+                txtdisponible.setText(null);
+                txtedicion.setText(null);
+                txtejemplares.setText(null);
+                txtfrecuencia.setText(null);
+                        txtpalabrasclave.setText(null);
+                 txttemas.setText(null);
+                 
+    }
     /**
      * @param args the command line arguments
      */

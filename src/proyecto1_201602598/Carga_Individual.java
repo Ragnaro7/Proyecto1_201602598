@@ -12,9 +12,9 @@ import javax.swing.JOptionPane;
  * @author Hector
  */
 public class Carga_Individual extends javax.swing.JFrame {
-Bibliografia b=new Bibliografia(); 
+/*Bibliografia b=new Bibliografia(); 
 Revista r=new Revista();
-Tesis t=new Tesis();
+Tesis t=new Tesis();*/
     /**
      * Creates new form Carga_Individual
      */
@@ -209,10 +209,10 @@ Tesis t=new Tesis();
                 txtarea.setEditable(false);
                 txtejemplares.setEditable(false);
                 txtfrecuencia.setEnabled(false);*/
-                b.setBibliografia(0,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
-                        txtpalabrasclave.getText(),Integer.parseInt(txtedicion.getText()),txttemas.getText(),"","","",
-                        Integer.parseInt(txtcopias.getText()), 
-                        Integer.parseInt(txtdisponible.getText()));
+                Bibliografia.setBibliografia(0,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),txtedicion.getText(),txttemas.getText(),"","","",
+                        txtcopias.getText(), 
+                        txtdisponible.getText());
                 
                 
                 /*
@@ -220,47 +220,59 @@ Tesis t=new Tesis();
             +";"+""+";"+""+";"+""+";"+copias+";"+disponibles;*/
                 
                 JOptionPane.showMessageDialog(null, "Libro Cargado");
+                Limpiar();
                 break;
                     
                 
             case(1):
                 
                 //txtarea.setEditable(false);
-                r.setRevista(1,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
-                        txtpalabrasclave.getText(),Integer.parseInt(txtedicion.getText()),txttemas.getText(),
+                Revista.setRevista(1,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),txtedicion.getText(),txttemas.getText(),
                         txtfrecuencia.getText(),
                         txtejemplares.getText(),"",
-                        Integer.parseInt(txtcopias.getText()), 
-                        Integer.parseInt(txtdisponible.getText()));
+                        txtcopias.getText(), 
+                        txtdisponible.getText());
                 
                 JOptionPane.showMessageDialog(null, "Revista Cargada");
+                Limpiar();
                 break;
                 
             
             case(2):
                 
-                t.setTesis(2,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
-                        txtpalabrasclave.getText(),Integer.parseInt(txtedicion.getText()),txttemas.getText(),
+                Tesis.setTesis(2,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                        txtpalabrasclave.getText(),txtedicion.getText(),txttemas.getText(),
                          
-                        "", "",txtarea.getText(),Integer.parseInt(txtcopias.getText()),
-                        Integer.parseInt(txtdisponible.getText()));
+                        "", "",txtarea.getText(),txtcopias.getText(),
+                        txtdisponible.getText());
                 
                 JOptionPane.showMessageDialog(null, "Tesis Cargada");
+                Limpiar();
                 break;
                 
                 
                 
         }
         
-        for(int i=0;i<b.obLongi();i++){
-            
-            //System.out.println(libro.obBibliografia());
-            System.out.println(b.obBibliografia(i));
-          
-        }
+    
         
     }//GEN-LAST:event_btncargarActionPerformed
 
+    public void Limpiar(){
+        txttitulo.setText(null);
+                txtarea.setText(null);
+                txtautor.setText(null);
+                txtcopias.setText(null);
+                txtdescripcion.setText(null);
+                txtdisponible.setText(null);
+                txtedicion.setText(null);
+                txtejemplares.setText(null);
+                txtfrecuencia.setText(null);
+                        txtpalabrasclave.setText(null);
+                 txttemas.setText(null);
+                 
+    }
     /**
      * @param args the command line arguments
      */
