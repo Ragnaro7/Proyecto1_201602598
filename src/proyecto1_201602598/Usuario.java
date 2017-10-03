@@ -15,21 +15,23 @@ public Usuario(){
    
 }
 
-public static void setUsuario(int i,String id,String nombre,String apellido,String user,String rol,String pass){
+public static void setUsuario(int i,String id,String nombre,String apellido,String user,String rol,String pass,int num){
     
-   
-    Proyecto1_201602598.usuario[i]=id+","+nombre+","+apellido+","+user+","+rol+","+pass;
+    String ap=new String(Proyecto1_201602598.usuario[i]);
+    String[]x=ap.split(",");
+    String r=x[6];
+    Proyecto1_201602598.usuario[i]=id+","+nombre+","+apellido+","+user+","+rol+","+pass+","+r;
  
     
     
 }
 
-public static void setUsuario(String id,String nombre,String apellido,String user,String rol,String pass){
+public static void setUsuario(String id,String nombre,String apellido,String user,String rol,String pass,int num){
     
    
-    Proyecto1_201602598.usuario[Proyecto1_201602598.longi]=id+","+nombre+","+apellido+","+user+","+rol+","+pass;
+    Proyecto1_201602598.usuario[Proyecto1_201602598.longi]=id+","+nombre+","+apellido+","+user+","+rol+","+pass+","+num;
      Proyecto1_201602598.longi++;
-    
+    Proyecto1_201602598.contador++;
     
 }
 

@@ -162,7 +162,7 @@ public class Crear_Usuario extends javax.swing.JFrame {
         if((a.equals(b))&&(existente==false)){
         
         Usuario.setUsuario(txtid.getText(), txtnombre.getText(), txtapellido.getText(), 
-                txtuser.getText(), txtrol.getText(), a);
+                txtuser.getText(), txtrol.getText(), a,Proyecto1_201602598.contador);
         
         JOptionPane.showMessageDialog(null, "Usuario agregado");
       

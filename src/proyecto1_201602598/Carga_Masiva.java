@@ -26,37 +26,10 @@ DefaultTableModel modelo;
         initComponents();
         
         
-        
          this.setLocationRelativeTo(null);
-        
-        modelo=new DefaultTableModel();
-        modelo.addColumn("No");
-        modelo.addColumn("Autor");
-        modelo.addColumn("Titulo");
-        modelo.addColumn("Descripcion");
-        modelo.addColumn("Palabras Clave");
-        modelo.addColumn("Edicion");
-        modelo.addColumn("Temas");
-        
-        this.tabla.setModel(modelo);
+        Llenar();
         
         
-        int cantidadfilas=tabla.getRowCount();
-        for(int j=cantidadfilas-1;j>=0;j--){
-            modelo.removeRow(j);
-        }
-        
-        
-        
-        for(int i=0;i<Bibliografia.longibibliografia;i++){
-            String aux=new String(Bibliografia.bibliografia[i]);
-            String[] coo=aux.split(";");
-            
-            if(!(coo[0].equals(""))){
-            modelo.addRow(coo);
-        }
-            
-        }
         
         
         
@@ -117,7 +90,62 @@ DefaultTableModel modelo;
             e.printStackTrace();
         }
         return cadena;
+        
     }
+     
+     private void Llenar(){
+         
+         
+          modelo=new DefaultTableModel();
+        modelo.addColumn("No");
+        modelo.addColumn("Autor");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Palabras Clave");
+        modelo.addColumn("Edicion");
+        modelo.addColumn("Temas");
+        
+        this.tabla.setModel(modelo);
+        
+        
+        int cantidadfilas=tabla.getRowCount();
+        for(int j=cantidadfilas-1;j>=0;j--){
+            modelo.removeRow(j);
+        }
+        
+        
+        
+        for(int i=0;i<Bibliografia.longibibliografia;i++){
+            String aux=new String(Bibliografia.bibliografia[i]);
+            String[] coo=aux.split(";");
+            
+            if(!(coo[0].equals(""))){
+            modelo.addRow(coo);
+        }
+            
+        }
+        
+        
+        for(int x=0;x<Revista.longibibliografia;x++){
+            String aux=new String(Revista.bibliografia[x]);
+            String[] coo=aux.split(";");
+            if(!(coo[0].equals(""))){
+            modelo.addRow(coo);
+        }
+            
+        }
+        
+        for(int y=0;y<Tesis.longibibliografia;y++){
+            String aux=new String(Tesis.bibliografia[y]);
+            String[] coo=aux.split(";");
+            if(!(coo[0].equals(""))){
+            modelo.addRow(coo);
+        }
+            
+        }
+         
+         
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -139,8 +167,10 @@ DefaultTableModel modelo;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblcargamasiva.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        lblcargamasiva.setForeground(new java.awt.Color(204, 204, 0));
         lblcargamasiva.setText("Carga Masiva");
-        getContentPane().add(lblcargamasiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        getContentPane().add(lblcargamasiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         btncargar.setText("Cargar Informacion");
         btncargar.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +178,7 @@ DefaultTableModel modelo;
                 btncargarActionPerformed(evt);
             }
         });
-        getContentPane().add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        getContentPane().add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
 
         btnvolver.setText("Volver");
         btnvolver.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +186,7 @@ DefaultTableModel modelo;
                 btnvolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,11 +201,11 @@ DefaultTableModel modelo;
         ));
         jScrollPane2.setViewportView(tabla);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 370, 260));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 960, 260));
 
-        lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
+        lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/f.jpg"))); // NOI18N
         lblfondo.setText("Carga MAsiva");
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 410));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,6 +214,8 @@ DefaultTableModel modelo;
         // TODO add your handling code here:
         String cadena = this.parsearCSV(abrirCSV());
         System.out.println(cadena);
+        
+        Llenar();
     }//GEN-LAST:event_btncargarActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed

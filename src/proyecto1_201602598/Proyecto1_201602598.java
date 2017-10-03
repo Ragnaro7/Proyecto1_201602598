@@ -13,6 +13,7 @@ public class Proyecto1_201602598 {
     
 public static String usuario[];
 public static int longi=0;
+public static int contador=0;
     /**
      * @param args the command line arguments
      */

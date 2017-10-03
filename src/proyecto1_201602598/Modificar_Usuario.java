@@ -188,7 +188,10 @@ int k;
            
         char[] arra=txtpass.getPassword();
         String p=new String(arra);
-        Usuario.setUsuario(k, txtid.getText(), txtnombre.getText(), txtapellido.getText(), txtuser.getText(), txtrol.getText(), p);
+        String ra=new String(Proyecto1_201602598.usuario[k]);
+        String[] ra2=ra.split(",");
+        int cx=Integer.parseInt(ra2[6]);
+        Usuario.setUsuario(k, txtid.getText(), txtnombre.getText(), txtapellido.getText(), txtuser.getText(), txtrol.getText(), p,cx);
         JOptionPane.showMessageDialog(null, "Usuario Actualizado","Modificar",INFORMATION_MESSAGE);
            
            

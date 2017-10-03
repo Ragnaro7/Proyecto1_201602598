@@ -28,6 +28,7 @@ DefaultTableModel modelo;
         modelo.addColumn("User");
         modelo.addColumn("Rol");
         modelo.addColumn("Password");
+        modelo.addColumn("NO");
         this.tabladatos.setModel(modelo);
         
         

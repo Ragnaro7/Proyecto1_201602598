@@ -102,7 +102,7 @@ DefaultTableModel modelo;
                 btnvolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, -1, -1));
 
         tablabiblio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,14 +117,15 @@ DefaultTableModel modelo;
         ));
         jScrollPane1.setViewportView(tablabiblio);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 840, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 990, 340));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
         jLabel1.setText("Ver Bibliografia");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
-        lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 410));
+        lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/f.jpg"))); // NOI18N
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
