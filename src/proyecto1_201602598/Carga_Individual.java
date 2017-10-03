@@ -209,7 +209,7 @@ Tesis t=new Tesis();*/
                 txtarea.setEditable(false);
                 txtejemplares.setEditable(false);
                 txtfrecuencia.setEnabled(false);*/
-                Bibliografia.setBibliografia(0,txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
+                Bibliografia.setBibliografia("0",txtautor.getText(), txttitulo.getText(), txtdescripcion.getText(),
                         txtpalabrasclave.getText(),txtedicion.getText(),txttemas.getText(),"","","",
                         txtcopias.getText(), 
                         txtdisponible.getText());

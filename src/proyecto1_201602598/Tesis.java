@@ -20,6 +20,19 @@ public class Tesis{
     public static void setTesis(int po){
     bibliografia[po]="";
 }
+    
+    public static void setTesisM(String tipo, String autor, String titulo, String descripcion, String palcla, 
+            String edicion, String temas, String frecuencia, String ejemplares, String area, String copias, 
+            String disponibles) {
+        
+        bibliografia[longibibliografia]=tipo+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+""+";"+""+";"+area+";"+copias+";"+disponibles;
+    //this.aumentarLongi();
+    longibibliografia++;
+        
+    }
+    
+    
    public static void setTesis(int tipo, String autor, String titulo, String descripcion, String palcla, 
             String edicion, String temas, String frecuencia, String ejemplares, String area, String copias, 
             String disponibles) {

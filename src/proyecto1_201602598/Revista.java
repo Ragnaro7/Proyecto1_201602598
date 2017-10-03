@@ -20,6 +20,19 @@ public class Revista{
         //bibliografia=new String[600];
     
     }
+ 
+    public static void setRevistaM(String tipo, String autor, String titulo, String descripcion, String palcla, 
+            String edicion, String temas, String frecuencia, String ejemplares, String area, String copias, 
+            String disponibles) {
+        
+        bibliografia[longibibliografia]=tipo+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+frecuencia+";"+ejemplares+";"+""+";"+copias+";"+disponibles;
+    //this.aumentarLongi();
+    longibibliografia++;
+        
+    }
+    
+    
     
 public static void setRevista(int po){
     bibliografia[po]="";

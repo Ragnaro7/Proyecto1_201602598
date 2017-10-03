@@ -37,6 +37,11 @@ public class Crear_Bibliografia extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnmasiva.setText("Carga Masiva");
+        btnmasiva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmasivaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnmasiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         btnindividual.setText("Carga Individual");
@@ -74,6 +79,13 @@ public class Crear_Bibliografia extends javax.swing.JFrame {
         ci.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnindividualActionPerformed
+
+    private void btnmasivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmasivaActionPerformed
+        // TODO add your handling code here:
+        Carga_Masiva cm=new Carga_Masiva();
+        cm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnmasivaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,7 @@
 package proyecto1_201602598;
 
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
 
 /**
  *
@@ -107,19 +108,47 @@ PantallaPrincipal pal=new PantallaPrincipal();
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
         // TODO add your handling code here:
+        //3-5
         char[] arrayc=txtpassw.getPassword();
         String pass=new String(arrayc);
-        
+        String a=txtusuario.getText();
+       
+            
+      
         if((txtusuario.getText().equals("admin") && pass.equals("admin"))){
             Usuario_Administrador ua=new Usuario_Administrador();
             ua.setVisible(true);
             this.setVisible(false);
         }else{
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
+            //JOptionPane.showMessageDialog(null, "Error");
+            
+            for(int i=0;i<Proyecto1_201602598.longi;i++){
+                
+                String u=new String(Proyecto1_201602598.usuario[i]);
+                String[] coordenada=u.split(",");
+                    
+                    if((coordenada[0].equals(a))&&(coordenada[5].equals(pass))){
+                        JOptionPane.showMessageDialog(null, "Bienvenido "+a);
+                        Usuario_Normal un=new Usuario_Normal();
+                        un.setVisible(true);
+                        this.setVisible(false);
+                        
+                    }else if((coordenada[0].equals(a))&&!(coordenada[5].equals(pass))){
+                        JOptionPane.showMessageDialog(null, "La contraseña es erronea","Error",WARNING_MESSAGE);
+                        
+                    }else if(!(coordenada[0].equals(a))&&(coordenada[5].equals(pass))){
+                        JOptionPane.showMessageDialog(null, "El usuario es incorrecto","Error",WARNING_MESSAGE);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "No existe este usuario, si desea crear uno "
+                                + "nuevo debe ir al 5to nivel de la Biblioteca Central","Error "
+                                ,WARNING_MESSAGE);
+                    }
+                
+                
+            }
+       
     }//GEN-LAST:event_btningresarActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */

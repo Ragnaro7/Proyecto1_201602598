@@ -50,8 +50,20 @@ public static void setBibliografia(int po){
     bibliografia[po]="";
 }
 
+public static void setBibliografiaM(String tipo,String autor,String titulo,String descripcion,String palcla,String edicion,
+        String temas,String frecuencia,String ejemplares,String area,String copias,String disponibles){
+    
+    //Tipo; Autor; Titulo; Descripción; Palabras Clave; Edición; 
+    //Temas; Frecuencia Actual; Ejemplares; Área; Copias; Disponibles
+    
+    bibliografia[longibibliografia]=tipo+";"+autor+";"+titulo+";"+descripcion+";"+palcla+";"+edicion+";"+temas
+            +";"+""+";"+""+";"+""+";"+copias+";"+disponibles;
+    //this.aumentarLongi();
+    longibibliografia++;
+}//libro
 
-public static void setBibliografia(int tipo,String autor,String titulo,String descripcion,String palcla,String edicion,
+
+public static void setBibliografia(String tipo,String autor,String titulo,String descripcion,String palcla,String edicion,
         String temas,String frecuencia,String ejemplares,String area,String copias,String disponibles){
     
     //Tipo; Autor; Titulo; Descripción; Palabras Clave; Edición; 

@@ -21,6 +21,9 @@ public static int longi=0;
         usuario=new String[100];
        PantallaPrincipal pal=new PantallaPrincipal();
         pal.setVisible(true);
+        
+       /* Leer_Archivo leer=new Leer_Archivo();
+        leer.leer();*/
     }
     
 }

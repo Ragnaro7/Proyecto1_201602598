@@ -5,17 +5,118 @@
  */
 package proyecto1_201602598;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hector
  */
 public class Carga_Masiva extends javax.swing.JFrame {
-
+public java.io.File fichero;
+DefaultTableModel modelo;
     /**
      * Creates new form Carga_Masiva
      */
     public Carga_Masiva() {
         initComponents();
+        
+        
+        
+         this.setLocationRelativeTo(null);
+        
+        modelo=new DefaultTableModel();
+        modelo.addColumn("No");
+        modelo.addColumn("Autor");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Palabras Clave");
+        modelo.addColumn("Edicion");
+        modelo.addColumn("Temas");
+        
+        this.tabla.setModel(modelo);
+        
+        
+        int cantidadfilas=tabla.getRowCount();
+        for(int j=cantidadfilas-1;j>=0;j--){
+            modelo.removeRow(j);
+        }
+        
+        
+        
+        for(int i=0;i<Bibliografia.longibibliografia;i++){
+            String aux=new String(Bibliografia.bibliografia[i]);
+            String[] coo=aux.split(";");
+            
+            if(!(coo[0].equals(""))){
+            modelo.addRow(coo);
+        }
+            
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    private String abrirCSV()
+    {
+        String cadena="";
+        int seleccion = fileCh.showDialog(this,"Seleccionar archivo csv");
+        if(seleccion == javax.swing.JFileChooser.APPROVE_OPTION)
+        {
+            fichero = fileCh.getSelectedFile();
+            cadena = fichero.getAbsolutePath();
+        }
+        return cadena;
+    }
+    
+     private String parsearCSV(String ruta)
+    {
+       
+        String cadena=""; 
+      // String fileName="este.csv";
+        File file=new File(ruta);
+        
+        try{
+            Scanner inputStream=new Scanner(file);
+            while(inputStream.hasNext()){
+                String data=inputStream.next();
+                String[] informacion=data.split(";");
+                for(int i=0;i<informacion.length;i++){
+                    if(informacion[i]==null){
+                        informacion[i]="";
+                    }
+                }
+                switch(informacion[0]){
+                    case("0"):
+                
+                 Bibliografia.setBibliografiaM(informacion[0], informacion[1], informacion[2], informacion[3], informacion[4], informacion[5], informacion[6], informacion[7], informacion[8],informacion[9], informacion[10], informacion[11]);
+                 break;
+                 
+                    case("1"):
+                        Revista.setRevistaM(informacion[0], informacion[1], informacion[2], informacion[3], informacion[4], informacion[5], informacion[6], informacion[7], informacion[8],informacion[9], informacion[10], informacion[11]);
+                 break;
+                 
+                    case("2"):
+                        Tesis.setTesisM(informacion[0], informacion[1], informacion[2], informacion[3], informacion[4], informacion[5], informacion[6], informacion[7], informacion[8],informacion[9], informacion[10], informacion[11]);
+                 break;
+                
+                }    
+                //System.out.println(data);
+                
+            }
+        inputStream.close();
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return cadena;
     }
 
     /**
@@ -27,11 +128,12 @@ public class Carga_Masiva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        fileCh = new javax.swing.JFileChooser();
         lblcargamasiva = new javax.swing.JLabel();
         btncargar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         btnvolver = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
         lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,16 +143,35 @@ public class Carga_Masiva extends javax.swing.JFrame {
         getContentPane().add(lblcargamasiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         btncargar.setText("Cargar Informacion");
+        btncargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncargarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 280));
-
         btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tabla);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 370, 260));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
         lblfondo.setText("Carga MAsiva");
@@ -58,6 +179,20 @@ public class Carga_Masiva extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
+        // TODO add your handling code here:
+        String cadena = this.parsearCSV(abrirCSV());
+        System.out.println(cadena);
+    }//GEN-LAST:event_btncargarActionPerformed
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+        // TODO add your handling code here:
+        Usuario_Administrador ua=new Usuario_Administrador();
+        this.setVisible(false);
+        ua.setVisible(true);
+        
+    }//GEN-LAST:event_btnvolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,9 +232,10 @@ public class Carga_Masiva extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncargar;
     private javax.swing.JButton btnvolver;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JFileChooser fileCh;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblcargamasiva;
     private javax.swing.JLabel lblfondo;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
