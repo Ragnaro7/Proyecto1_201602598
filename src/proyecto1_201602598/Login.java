@@ -130,8 +130,10 @@ PantallaPrincipal pal=new PantallaPrincipal();
                     if((coordenada[0].equals(a))&&(coordenada[5].equals(pass))){
                         JOptionPane.showMessageDialog(null, "Bienvenido "+a);
                         Usuario_Normal un=new Usuario_Normal();
+                        String identificador=coordenada[6];
                         un.setVisible(true);
                         this.setVisible(false);
+                        un.iden(Integer.parseInt(coordenada[6]));
                         
                     }else if((coordenada[0].equals(a))&&!(coordenada[5].equals(pass))){
                         JOptionPane.showMessageDialog(null, "La contraseña es erronea","Error",WARNING_MESSAGE);
