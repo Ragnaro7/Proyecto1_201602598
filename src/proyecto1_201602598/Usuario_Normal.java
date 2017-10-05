@@ -6,6 +6,7 @@
 package proyecto1_201602598;
 
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,8 +15,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Usuario_Normal extends javax.swing.JFrame {
 DefaultTableModel modelo;
-public static String[][] Carga=new String[100][100];
+public static String[][] Carga=new String[600][600];
 public static int ide;
+int columna=0;
 
 
 
@@ -50,6 +52,43 @@ public static int ide;
         
     }
     
+    private void ordenarCopias() throws Exception{
+    
+         int cantidadfilas=tabla.getRowCount();
+        for(int j=cantidadfilas-1;j>=0;j--){
+            modelo.removeRow(j);
+        }
+        
+        String aux;
+        boolean cambios=false;
+        
+        while(true){
+            cambios=false;
+            for(int i=1;i<Carga.length;i++){
+                //10
+                String a=Carga[ide][i];
+                String b=Carga[ide][i-1];
+                String coo1[]=a.split(";");
+                String coo2[]=b.split(";");
+                int n1=Integer.parseInt(coo1[10]);
+                int n2=Integer.parseInt(coo2[10]);
+                
+                if(n1<n2){
+                    aux=Carga[ide][i];
+                    Carga[ide][i]=Carga[ide][i-1];
+                    Carga[ide][i-1]=aux;
+                    cambios=true;
+                }
+            }
+            if(cambios==false){
+                break;
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "Presione Cargar", "Ordenado segun copias", INFORMATION_MESSAGE);
+        
+    }
+    
     public void iden(int i){
         
     ide=i;
@@ -76,7 +115,7 @@ public static int ide;
         jLabel5 = new javax.swing.JLabel();
         txtpalabraclave = new javax.swing.JTextField();
         btnvolver = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        combo = new javax.swing.JComboBox<>();
         btnordenar = new javax.swing.JButton();
         btncargar = new javax.swing.JButton();
         btnvirtual = new javax.swing.JButton();
@@ -149,10 +188,15 @@ public static int ide;
         });
         getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, -1, -1));
+        combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Copias", "Disponible" }));
+        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, -1, -1));
 
         btnordenar.setText("Ordenar");
+        btnordenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnordenarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, -1, -1));
 
         btncargar.setText("Cargar");
@@ -208,8 +252,8 @@ public static int ide;
                  
                  if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
                      
-                     Carga[ide][i]=a;
-                     
+                     Carga[ide][columna]=a;
+                     columna++;
                      JOptionPane.showMessageDialog(null, "Se ha cargado el libro \n"+coo[1]);
                      msj=true;
                      break;
@@ -227,8 +271,8 @@ public static int ide;
                  
                  if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
                      
-                     Carga[ide][i]=a;
-                     
+                     Carga[ide][columna]=a;
+                     columna++;
                      JOptionPane.showMessageDialog(null, "Se ha cargado la revista \n"+coo[1]);
                      msj=true;
                      break;
@@ -245,8 +289,8 @@ public static int ide;
                  
                  if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
                      
-                     Carga[ide][i]=a;
-                     
+                     Carga[ide][columna]=a;
+                     columna++;
                      JOptionPane.showMessageDialog(null, "Se ha cargado la tesis \n"+coo[1]);
                      msj=true;
                      break;
@@ -267,7 +311,7 @@ public static int ide;
         
     }//GEN-LAST:event_btnagregarActionPerformed
 
-    public void Cargar() throws NullPointerException{
+    public void Cargar() throws Exception{
   
         int cantidadfilas=tabla.getRowCount();
         for(int j=cantidadfilas-1;j>=0;j--){
@@ -383,6 +427,41 @@ public static int ide;
         
         
     }//GEN-LAST:event_btneliminarActionPerformed
+    
+    private void imp() throws Exception{
+        
+         int cantidadfilas=tabla.getRowCount();
+        for(int j=cantidadfilas-1;j>=0;j--){
+            modelo.removeRow(j);
+        }
+        
+          
+        for(int i=0;i<Carga.length;i++){
+            
+            String aux=Carga[ide][i];
+            String[] coo=aux.split(";");
+            
+            if(!(coo[0].equals(""))){
+            modelo.addRow(coo);
+        }
+            
+        }//for
+        
+    }
+    private void btnordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenarActionPerformed
+        // TODO add your handling code here:
+       try{
+        ordenarCopias();
+       }catch(Exception e){
+           
+       }
+   
+        
+  
+        
+      
+        
+    }//GEN-LAST:event_btnordenarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,7 +506,7 @@ public static int ide;
     private javax.swing.JButton btnordenar;
     private javax.swing.JButton btnvirtual;
     private javax.swing.JButton btnvolver;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> combo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
