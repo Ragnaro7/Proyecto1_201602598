@@ -29,6 +29,12 @@ int columna=0;
         
          this.setLocationRelativeTo(null);
         
+         /*String datosg=Proyecto1_201602598.usuario[ide];
+         String[]c=datosg.split(",");
+         lblnombre.setText("Nombre: "+c[1]);
+         lblapellido.setText("Apellido: "+c[2]);
+         lblusuario.setText("Usuario: "+c[3]);*/
+         
        modelo=new DefaultTableModel();
         modelo.addColumn("No");
         modelo.addColumn("Autor");
@@ -54,14 +60,19 @@ int columna=0;
     
     private void ordenarCopias() throws Exception{
     
-         int cantidadfilas=tabla.getRowCount();
+          int cantidadfilas=tabla.getRowCount();
         for(int j=cantidadfilas-1;j>=0;j--){
             modelo.removeRow(j);
         }
+        //----------------------------------------------------------------------
         
-        String aux;
+        int indice=combo.getSelectedIndex();
+        
+                 String aux;
         boolean cambios=false;
         
+        switch(indice){
+            case 0: 
         while(true){
             cambios=false;
             for(int i=1;i<Carga.length;i++){
@@ -73,7 +84,7 @@ int columna=0;
                 int n1=Integer.parseInt(coo1[10]);
                 int n2=Integer.parseInt(coo2[10]);
                 
-                if(n1<n2){
+                if(n1>n2){
                     aux=Carga[ide][i];
                     Carga[ide][i]=Carga[ide][i-1];
                     Carga[ide][i-1]=aux;
@@ -86,6 +97,44 @@ int columna=0;
         }
         
         JOptionPane.showMessageDialog(null, "Presione Cargar", "Ordenado segun copias", INFORMATION_MESSAGE);
+        break;
+        //----------------------------------------------------------------------
+            case 1:
+               
+       
+      cambios=false;
+        
+        while(true){
+            cambios=false;
+            for(int i=1;i<Carga.length;i++){
+                //10
+                String a=Carga[ide][i];
+                String b=Carga[ide][i-1];
+                String coo1[]=a.split(";");
+                String coo2[]=b.split(";");
+                int n1=Integer.parseInt(coo1[11]);
+                int n2=Integer.parseInt(coo2[11]);
+                
+                if(n1>n2){
+                    aux=Carga[ide][i];
+                    Carga[ide][i]=Carga[ide][i-1];
+                    Carga[ide][i-1]=aux;
+                    cambios=true;
+                }
+            }
+            if(cambios==false){
+                break;
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "Presione Cargar", "Ordenado segun copias", INFORMATION_MESSAGE);
+        break;
+                
+                
+        }
+        //----------------------------------------------------------------------
+       
+        
         
     }
     
@@ -111,15 +160,15 @@ int columna=0;
         btneliminar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnbuscar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblusuario = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
         txtpalabraclave = new javax.swing.JTextField();
         btnvolver = new javax.swing.JButton();
         combo = new javax.swing.JComboBox<>();
         btnordenar = new javax.swing.JButton();
         btncargar = new javax.swing.JButton();
         btnvirtual = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        lblapellido = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         lblfondo = new javax.swing.JLabel();
@@ -165,17 +214,20 @@ int columna=0;
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
 
         btnbuscar.setText("Buscar");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel4.setText("Usuario");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        lblusuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblusuario.setForeground(new java.awt.Color(204, 204, 0));
+        getContentPane().add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel5.setText("Nombre");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
+        lblnombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(204, 204, 0));
+        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
 
         txtpalabraclave.setColumns(15);
         getContentPane().add(txtpalabraclave, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
@@ -186,10 +238,10 @@ int columna=0;
                 btnvolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, -1));
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
 
         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Copias", "Disponible" }));
-        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, -1, -1));
+        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 50, -1, -1));
 
         btnordenar.setText("Ordenar");
         btnordenar.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +249,7 @@ int columna=0;
                 btnordenarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, -1, -1));
+        getContentPane().add(btnordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 80, -1, -1));
 
         btncargar.setText("Cargar");
         btncargar.addActionListener(new java.awt.event.ActionListener() {
@@ -205,15 +257,14 @@ int columna=0;
                 btncargarActionPerformed(evt);
             }
         });
-        getContentPane().add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, -1, -1));
+        getContentPane().add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, -1, -1));
 
         btnvirtual.setText("Ver Biblioteca Virtual");
-        getContentPane().add(btnvirtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 170, -1, -1));
+        getContentPane().add(btnvirtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel6.setText("Apellido");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+        lblapellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblapellido.setForeground(new java.awt.Color(204, 204, 0));
+        getContentPane().add(lblapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -225,10 +276,10 @@ int columna=0;
         ));
         jScrollPane2.setViewportView(tabla);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 880, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1000, 220));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/f.jpg"))); // NOI18N
-        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 450));
+        getContentPane().add(lblfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -463,6 +514,49 @@ int columna=0;
         
     }//GEN-LAST:event_btnordenarActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        // TODO add your handling code here:
+        String[] este=new String[100];
+        String[] palabras=txtpalabraclave.getText().split(",");
+        int contador=0;
+        
+        while(contador<palabras.length){
+            
+            for(int i=0;i<Carga.length;i++){
+               String s1=Carga[ide][i];
+                String[] c1=s1.split(";");
+                String s2=c1[4];
+                String[]c2=s2.split(",");
+                
+                if(palabras[contador].equals(c2[i])){
+                    este[contador]=Carga[ide][i];
+                    contador++;
+                }
+            }
+        }//while
+        
+      //-------------------------------------------------------------------
+               int cantidadfilas=tabla.getRowCount();
+        for(int j=cantidadfilas-1;j>=0;j--){
+            modelo.removeRow(j);
+        }
+        
+          
+        for(int i=0;i<este.length;i++){
+            
+            String aux=este[i];
+            String[] coo=aux.split(";");
+            
+            if(!(coo[0].equals(""))){
+            modelo.addRow(coo);
+        }
+            
+        }//for
+      //--------------------------------------------------------------------
+        
+        
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -510,11 +604,11 @@ int columna=0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblapellido;
     private javax.swing.JLabel lblfondo;
+    private javax.swing.JLabel lblnombre;
+    private javax.swing.JLabel lblusuario;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txtautor;
     private javax.swing.JTextField txtpalabraclave;
