@@ -6,10 +6,14 @@
 package proyecto1_201602598;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,7 +41,54 @@ DefaultTableModel modelo;
         
         
     }
-    
+    public void cargar(){
+        int contador=1;
+        JFileChooser buscador=new JFileChooser();
+        buscador.showOpenDialog(buscador);
+        
+        try{
+            String holaaa=buscador.getSelectedFile().getAbsolutePath();
+            FileInputStream archivo=new FileInputStream(holaaa);
+            DataInputStream entrada= new DataInputStream(archivo);
+            
+            BufferedReader buffer=new BufferedReader(new InputStreamReader(entrada));
+            String lineas;
+            
+            while((lineas=buffer.readLine())!=null){
+                if(contador!=0){
+                    String[] informacion;
+                    informacion=lineas.split(";");
+                    //-------
+                        for(int i=0;i<informacion.length;i++){
+                    if(informacion[i]==null){
+                        informacion[i]="";
+                    }
+                }
+                switch(informacion[0]){
+                    case("0"):
+                
+                 Bibliografia.setBibliografiaM(informacion[0], informacion[1], informacion[2], informacion[3], informacion[4], informacion[5], informacion[6], informacion[7], informacion[8],informacion[9], informacion[10], informacion[11]);
+                 break;
+                 
+                    case("1"):
+                        Revista.setRevistaM(informacion[0], informacion[1], informacion[2], informacion[3], informacion[4], informacion[5], informacion[6], informacion[7], informacion[8],informacion[9], informacion[10], informacion[11]);
+                 break;
+                 
+                    case("2"):
+                        Tesis.setTesisM(informacion[0], informacion[1], informacion[2], informacion[3], informacion[4], informacion[5], informacion[6], informacion[7], informacion[8],informacion[9], informacion[10], informacion[11]);
+                 break;
+                
+                } 
+                    //-------
+                }
+                contador++;
+            }
+            entrada.close();
+        }catch(Exception e){
+            
+        }
+        
+    }
     private String abrirCSV()
     {
         String cadena="";
@@ -97,13 +148,18 @@ DefaultTableModel modelo;
          
          
           modelo=new DefaultTableModel();
-        modelo.addColumn("No");
+         modelo.addColumn("No");
         modelo.addColumn("Autor");
         modelo.addColumn("Titulo");
         modelo.addColumn("Descripcion");
         modelo.addColumn("Palabras Clave");
         modelo.addColumn("Edicion");
         modelo.addColumn("Temas");
+        modelo.addColumn("Frecuencia actual");
+        modelo.addColumn("Ejemplares");
+        modelo.addColumn("Area");
+        modelo.addColumn("Copias");
+        modelo.addColumn("Disponible");
         
         this.tabla.setModel(modelo);
         
@@ -212,9 +268,9 @@ DefaultTableModel modelo;
 
     private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
         // TODO add your handling code here:
-        String cadena = this.parsearCSV(abrirCSV());
-        System.out.println(cadena);
-        
+        //String cadena = this.parsearCSV(abrirCSV());
+        //System.out.println(cadena);
+        cargar();
         Llenar();
     }//GEN-LAST:event_btncargarActionPerformed
 

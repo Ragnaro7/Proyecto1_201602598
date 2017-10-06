@@ -260,6 +260,11 @@ int columna=0;
         getContentPane().add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, -1, -1));
 
         btnvirtual.setText("Ver Biblioteca Virtual");
+        btnvirtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvirtualActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnvirtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, -1, -1));
 
         lblapellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -301,7 +306,7 @@ int columna=0;
                  String a=Bibliografia.bibliografia[i];
                  String[] coo=a.split(";");
                  
-                 if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
+                 if(txtautor.getText().equalsIgnoreCase(coo[1])&&(txttitulo.getText().equalsIgnoreCase(coo[2]))){
                      
                      Carga[ide][columna]=a;
                      columna++;
@@ -320,7 +325,7 @@ int columna=0;
                  String a=Revista.bibliografia[i];
                  String[] coo=a.split(";");
                  
-                 if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
+                 if(txtautor.getText().equalsIgnoreCase(coo[1])&&(txttitulo.getText().equalsIgnoreCase(coo[2]))){
                      
                      Carga[ide][columna]=a;
                      columna++;
@@ -338,7 +343,7 @@ int columna=0;
                  String a=Tesis.bibliografia[i];
                  String[] coo=a.split(";");
                  
-                 if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
+                 if(txtautor.getText().equalsIgnoreCase(coo[1])&&(txttitulo.getText().equalsIgnoreCase(coo[2]))){
                      
                      Carga[ide][columna]=a;
                      columna++;
@@ -417,7 +422,7 @@ int columna=0;
                  String a=Bibliografia.bibliografia[i];
                  String[] coo=a.split(";");
                  
-                 if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
+                 if(txtautor.getText().equalsIgnoreCase(coo[1])&&(txttitulo.getText().equalsIgnoreCase(coo[2]))){
                      
                      Carga[ide][i]="";
                      
@@ -436,7 +441,7 @@ int columna=0;
                  String a=Revista.bibliografia[i];
                  String[] coo=a.split(";");
                  
-                 if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
+                 if(txtautor.getText().equalsIgnoreCase(coo[1])&&(txttitulo.getText().equalsIgnoreCase(coo[2]))){
                      
                      Carga[ide][i]="";
                      
@@ -454,7 +459,7 @@ int columna=0;
                  String a=Tesis.bibliografia[i];
                  String[] coo=a.split(";");
                  
-                 if(txtautor.getText().equals(coo[1])&&(txttitulo.getText().equals(coo[2]))){
+                 if(txtautor.getText().equalsIgnoreCase(coo[1])&&(txttitulo.getText().equalsIgnoreCase(coo[2]))){
                      
                      Carga[ide][i]="";
                      
@@ -514,48 +519,100 @@ int columna=0;
         
     }//GEN-LAST:event_btnordenarActionPerformed
 
+
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
         String[] este=new String[100];
+        int ceste=0;
         String[] palabras=txtpalabraclave.getText().split(",");
-        int contador=0;
         
-        while(contador<palabras.length){
-            
-            for(int i=0;i<Carga.length;i++){
-               String s1=Carga[ide][i];
-                String[] c1=s1.split(";");
-                String s2=c1[4];
-                String[]c2=s2.split(",");
-                
-                if(palabras[contador].equals(c2[i])){
-                    este[contador]=Carga[ide][i];
-                    contador++;
+        for(int i=0;i<Carga.length;i++){
+            if((Carga[ide][i]==null)||((Carga[ide][i].equals("")))){
+                    String a=Carga[ide][i];//Linea de libros
+                    String[] b=a.split(";");//Spkit libros
+                    String c=b[4];//Palabras Clavve
+                    String[]splitp=c.split(",");//split palabras clave
+                    
+                    for(int j=0;j<palabras.length;j++){
+                    for(int k=0;k<splitp.length;k++){
+                        if(palabras[j].equals(splitp[k])){
+                            este[ceste]=Carga[ide][i];
+                            ceste++;
+                            
+                            //-----------------------------
+                                                            int cantidadfilas=tabla.getRowCount();
+                               for(int v=cantidadfilas-1;v>=0;v--){
+                                   modelo.removeRow(v);
+                               }
+
+
+                               for(int w=0;w<este.length;w++){
+
+                                   String aux=este[w];
+                                   String[] coo=aux.split(";");
+
+                                   if(!(coo[0].equals(""))){
+                                   modelo.addRow(coo);
+                               }
+
+                               }//for
+                            //----------------------------
+                        break;
+                        }
+                    }
+                break;
                 }
+                    
+                    
             }
-        }//while
-        
-      //-------------------------------------------------------------------
-               int cantidadfilas=tabla.getRowCount();
-        for(int j=cantidadfilas-1;j>=0;j--){
-            modelo.removeRow(j);
-        }
-        
-          
-        for(int i=0;i<este.length;i++){
-            
-            String aux=este[i];
-            String[] coo=aux.split(";");
-            
-            if(!(coo[0].equals(""))){
-            modelo.addRow(coo);
+               
         }
             
-        }//for
-      //--------------------------------------------------------------------
-        
+            
+               /* for(int j=0;j<palabras.length;j++){
+                    for(int k=0;k<d.length;k++){
+                        if(palabras[j].equals(d[k])){
+                            este[ceste]=Carga[ide][i];
+                            ceste++;
+                            
+                            //-----------------------------
+                                                            int cantidadfilas=tabla.getRowCount();
+                               for(int v=cantidadfilas-1;v>=0;v--){
+                                   modelo.removeRow(v);
+                               }
+
+
+                               for(int w=0;w<este.length;w++){
+
+                                   String aux=este[w];
+                                   String[] coo=aux.split(";");
+
+                                   if(!(coo[0].equals(""))){
+                                   modelo.addRow(coo);
+                               }
+
+                               }//for
+                            //----------------------------
+                        break;
+                        }
+                    }
+                break;
+                }
+            
+        }*/
         
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btnvirtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvirtualActionPerformed
+        // TODO add your handling code here:
+        
+        Dibujo d=new Dibujo(ide);
+        this.setVisible(false);
+        d.setVisible(true);
+        d.setLocationRelativeTo(null);
+        d.setLayout(null);
+        d.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }//GEN-LAST:event_btnvirtualActionPerformed
 
     /**
      * @param args the command line arguments
