@@ -72,7 +72,9 @@ int columna=0;
         boolean cambios=false;
         
         switch(indice){
-            case 0: 
+            case 0: {
+                
+            
         while(true){
             cambios=false;
             for(int i=1;i<Carga.length;i++){
@@ -102,10 +104,14 @@ int columna=0;
             }
         }
            break;
+           
                 }
-   
+        break;
+            }
         //----------------------------------------------------------------------
-            case 1:
+            case 1:{
+                
+            
                
        
       cambios=false;
@@ -134,11 +140,13 @@ int columna=0;
                 }
             }
                 }
+            
             if(cambios==false){
                 break;
             }
+            break;
         }
-        
+        }
         break;
                 
                 
@@ -322,6 +330,8 @@ int columna=0;
                      Carga[ide][columna]=a;
                      columna++;
                      JOptionPane.showMessageDialog(null, "Se ha cargado el libro \n"+coo[1]);
+                     txtautor.setText(null);
+        txttitulo.setText(null);
                      msj=true;
                      break;
                      
@@ -341,6 +351,8 @@ int columna=0;
                      Carga[ide][columna]=a;
                      columna++;
                      JOptionPane.showMessageDialog(null, "Se ha cargado la revista \n"+coo[1]);
+                     txtautor.setText(null);
+        txttitulo.setText(null);
                      msj=true;
                      break;
                      
@@ -359,6 +371,8 @@ int columna=0;
                      Carga[ide][columna]=a;
                      columna++;
                      JOptionPane.showMessageDialog(null, "Se ha cargado la tesis \n"+coo[1]);
+                     txtautor.setText(null);
+        txttitulo.setText(null);
                      msj=true;
                      break;
                      
@@ -368,6 +382,8 @@ int columna=0;
         
         if(msj==false){
             JOptionPane.showMessageDialog(null, "No existe este documento");
+            txtautor.setText(null);
+        txttitulo.setText(null);
         }
         
         
@@ -618,7 +634,7 @@ int columna=0;
         // TODO add your handling code here:
         
         Dibujo d=new Dibujo(ide);
-        this.setVisible(false);
+        //this.setVisible(false);
         d.setVisible(true);
         d.setLocationRelativeTo(null);
         d.setLayout(null);

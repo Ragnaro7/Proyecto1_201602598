@@ -1,14 +1,13 @@
-0;Autor1;Titulo1;Descripcion1;palabra1,palabra2;1;tema1,tema2;;;;10;6
-0;Autor2;Titulo2;Descripcion1;palabra1,palabra2;8;tema1,tema6;;;;1;50
-1;Autor3;Titulo3;Descripcion3ddd;palabra4,palabra5;3;tema3,tema4,tema2;Anual;4;;3;1
-1;Autor4;Titulo4;Descripcionfs3;pal,s,a,palabra5;3;tema3,tema2;Anual;4;;6;5
-2;Autor5;Titulo5;Descripcion2132;a,palabra6;0;tema5,te,ma;;;Ingenier√≠a;3;4
-2;Autor6;Titulo6;Descripcion21;a,b,c,d;0;tema6,tema2,a,s;;;Ingenier√≠a;1;0
-2;Autor7;Titulo7;Descripcion21;a,b,c,d;0;tema6,tema2,a,s;;;Ingenier√≠a;13;63
-2;Autor8;Titulo8;Descripcion21;a,b,c,d;0;tema6,tema2,a,s;;;Ingenier√≠a;12;35
-2;Autor9;Titulo10;Descripcion21;a,b,c,d;0;tema6,tema2,a,s;;;Ingenier√≠a;5;2
-2;Autor11;Titulo12;Descripcion21;a,b,c,d;0;tema6,tema2,a,s;;;Ingenier√≠a;9;4
-2;Autor13;Titulo14;Descripcion21;a,b,c,d;0;tema6,tema2,a,s;;;Ingenier√≠a;4;8
-0;Autor15;Titulo15;Descripcion1;palabra1,palabra2;1;tema1,tema2;;;;10;6
-1;Autor16;Titulo16;Descripcionfs3;pal,s,a,palabra5;3;tema3,tema2;Anual;4;;6;5
-1;Autor17;Titulo17;Descripcionfs3;pal,s,a,palabra5;3;tema3,tema2;Anual;4;;6;5
+Tipo;Autor;Titulo;Descripcion;Palabras Clave;Edicion;Temas;Frecuencia Actual;Ejemplares;Area;Copias;Disponibles
+0;JANET NOVEMBER; EXPERIENCIAS DE JUEGO CON PREESCOLARES;Libro Biblioteca T4;experiencia, juego, estudio;1;Psicologia, Preescolar, Administracion;;;;3;2
+0;ROBERT EDGERTON; RETRASO MENTAL;Libro Biblioteca T4;retraso, loco, mental, psicologo;1;Psicologia, Doctorado, Mente;;;;5;1
+0;PHILLIP C SCHLECHTY; SCHOOLS FOR THE TWENTY FIRST CENTURY LEADERSHIP IMPERATIVES FOR EDUCATIONAL REFORM;Libro Biblioteca T4;escuela, veinte, educacion, negocios;1;Ingenieria, Administracion;;;;7;2
+0;JORGE TENORIO BAHENA; REDACCION CONCEPTOS Y EJERCICIOS;Libro Biblioteca T4;redaccion, loco, ejercicios, psicologo;1;Secretaria, Ensayo, Conceptos;;;;9;3
+1;Editora 1; INDICADORES DE ACTIVIDADES CIENTÕFICAS Y TECNOL”GICAS M…XICO 2000;Revista Biblioteca T4;ciencia, tecnologia, mexico, indicadores;1;Psicologia, Preescolar, Administracion;Anual;5;;3;2
+1;Editora 2; 3D DIMENSIONAL ILLUSTRATORS AWARDS;Revista Biblioteca T4;dimensionales, premios;4;Psicologia, Doctorado, Mente;Mensual;4;;5;1
+1;Editora 3; DERECHOS HUMANOS;Revista Biblioteca T4;derechos, humanos;3;Ingenieria, Administracion;Semanal;3;;7;2
+1;Editora 4; STORES OF THE YEAR;Revista Biblioteca T4;progreso, economia, america;2;Secretaria, Ensayo, Conceptos;Anual;32;;9;3
+2;ALEJANDRA MARROQUIN; ESCUELA DE INGENIERÕA UNIVERSIDAD MARISTA METEPEC EDO DE M…XICO;Tesis Biblioteca T4;experiencia, juego, estudio;1;Redaccion;;;Facultad de Ciencias de la Comunicacion;5;1
+2;MANUEL DE LEON; ACUARIO EN VERACRUZ;Tesis Biblioteca T4;retraso, loco, mental, psicologo;1;Humanidades;;;Facultad de Humanidades;5;1
+2;CAROLINA ANTON; EL DICTAMEN COMO CONCLUSI”N DE LA AUDITORÕA DE ESTADOS FINANCIEROS;Tesis Biblioteca T4;escuela, veinte, educacion, negocios;1;Ingenieria, Administracion;;;Facultad de Psicologia;7;3
+2;FULANITO DE TAL; IMPLANTACI”N DE UN SISTEMA DE COSTOS EN UNA F¡BRICA DE PANTALONES;Tesis Biblioteca T4;redaccion, loco, ejercicios, psicologo;1;Derecho;;;Facultad de Derecho;3;2

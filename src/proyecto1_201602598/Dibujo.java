@@ -21,7 +21,7 @@ public class Dibujo extends JFrame{
   
     public Dibujo(int i){
          
-
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         setTitle("Biblioteca Virtual");
         setSize(1000,600);
         Capa fig=new Capa(i);
@@ -73,9 +73,9 @@ public class Dibujo extends JFrame{
                      g2.setColor(micolor);
                     g2.drawString(coo[2], x, y+120);
                     g2.fill(rectangulo);
-                    x+=200;
+                    x+=320;
                     contador++;
-                    if(contador==5){
+                    if(contador==3){
                         int auxy=y;
                         y+=200;
                         int auxx=x;
