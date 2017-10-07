@@ -20,9 +20,12 @@ import javax.swing.JPanel;
 public class Dibujo extends JFrame{
   
     public Dibujo(int i){
+         
+
         setTitle("Biblioteca Virtual");
-        setSize(800,600);
+        setSize(1000,600);
         Capa fig=new Capa(i);
+        fig.setBackground(Color.BLACK);
         add(fig);
     }
     
@@ -32,43 +35,64 @@ public class Dibujo extends JFrame{
 
  class Capa extends JPanel{
      int indice;
-     
+     Color micolor;
+     int n1,n2,n3;
+            int x;
+         int y;
+         int w;
+         int h;
+         int contador;
+         
      public Capa(int i){
+        
          indice=i;
+        x=0;
+        y=30;
+        w=50;
+        h=100;
+        contador=0;
      }
-     
+
      @Override
      public void paintComponent(Graphics g){
+     
          super.paintComponent(g);
          Graphics2D g2=(Graphics2D)g;
-         
-         int x=0;
-         int y=30;
-         int w=50;
-         int h=100;
-         
+         try{   
          for(int j=0;j<Usuario_Normal.Carga.length;j++){
              
-                 if((Usuario_Normal.Carga[indice][j].equals(""))||(Usuario_Normal.Carga[indice][j]==null)){
-                     
-                 }else{
+                 
                      String a=Usuario_Normal.Carga[indice][j];
                      String[] coo=a.split(";");
                      Rectangle2D rectangulo=new Rectangle2D.Double(x, y, w,h);
                      Random r=new Random();
-                     int n1=r.nextInt(249);
-                     int n2=r.nextInt(249);
-                     int n3=r.nextInt(247);
-                    Color micolor=new Color(n1,n2,n3);
+                     n1=r.nextInt(249);
+                     n2=r.nextInt(249);
+                     n3=r.nextInt(247);
+                    micolor=new Color(n1,n2,n3);
                      g2.setColor(micolor);
                     g2.drawString(coo[2], x, y+120);
                     g2.fill(rectangulo);
-                    x+=20;
-                 }
+                    x+=200;
+                    contador++;
+                    if(contador==5){
+                        int auxy=y;
+                        y+=200;
+                        int auxx=x;
+                        x=0;
+                        g2.setColor(Color.BLACK);
+                        g2.drawLine(auxx, auxy, auxx, auxy);
+                        contador=0;
+                    }
+                 
              }
          
          
-         
+     }
+         catch(Exception e){
+     
+ }
+     }
          
         /* Rectangle2D rectangulo=new Rectangle2D.Double(0, 30, 50, 100);
          g2.setColor(Color.GREEN);
@@ -82,6 +106,6 @@ public class Dibujo extends JFrame{
          g2.setColor(micolor);
          g2.fill(rectangulo2);
          g2.drawString("libro", 300, 250);*/
-     }
+     //paint component
     
 }

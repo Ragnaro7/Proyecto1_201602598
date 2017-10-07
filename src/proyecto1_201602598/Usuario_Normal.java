@@ -29,11 +29,11 @@ int columna=0;
         
          this.setLocationRelativeTo(null);
         
-         /*String datosg=Proyecto1_201602598.usuario[ide];
+         String datosg=Proyecto1_201602598.usuario[ide];
          String[]c=datosg.split(",");
          lblnombre.setText("Nombre: "+c[1]);
          lblapellido.setText("Apellido: "+c[2]);
-         lblusuario.setText("Usuario: "+c[3]);*/
+         lblusuario.setText("Usuario: "+c[3]);
          
        modelo=new DefaultTableModel();
         modelo.addColumn("No");
@@ -79,6 +79,11 @@ int columna=0;
                 //10
                 String a=Carga[ide][i];
                 String b=Carga[ide][i-1];
+                if((a.equals(""))||(b.equals(""))||(a==null)||(b==null)){
+                    
+                }else{
+                    
+                
                 String coo1[]=a.split(";");
                 String coo2[]=b.split(";");
                 int n1=Integer.parseInt(coo1[10]);
@@ -93,11 +98,12 @@ int columna=0;
             }
             if(cambios==false){
                 break;
+               
             }
         }
-        
-        JOptionPane.showMessageDialog(null, "Presione Cargar", "Ordenado segun copias", INFORMATION_MESSAGE);
-        break;
+           break;
+                }
+   
         //----------------------------------------------------------------------
             case 1:
                
@@ -110,6 +116,11 @@ int columna=0;
                 //10
                 String a=Carga[ide][i];
                 String b=Carga[ide][i-1];
+                if((a.equals(""))||(b.equals(""))||(a==null)||(b==null)){
+                    
+                }else{
+                    
+                
                 String coo1[]=a.split(";");
                 String coo2[]=b.split(";");
                 int n1=Integer.parseInt(coo1[11]);
@@ -122,12 +133,12 @@ int columna=0;
                     cambios=true;
                 }
             }
+                }
             if(cambios==false){
                 break;
             }
         }
         
-        JOptionPane.showMessageDialog(null, "Presione Cargar", "Ordenado segun copias", INFORMATION_MESSAGE);
         break;
                 
                 
@@ -612,6 +623,7 @@ int columna=0;
         d.setLocationRelativeTo(null);
         d.setLayout(null);
         d.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
     }//GEN-LAST:event_btnvirtualActionPerformed
 
     /**

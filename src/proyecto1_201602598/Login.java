@@ -109,6 +109,7 @@ PantallaPrincipal pal=new PantallaPrincipal();
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
         // TODO add your handling code here:
         //3-5
+        boolean log=false;
         char[] arrayc=txtpassw.getPassword();
         String pass=new String(arrayc);
         String a=txtusuario.getText();
@@ -117,11 +118,13 @@ PantallaPrincipal pal=new PantallaPrincipal();
       
         if((txtusuario.getText().equals("admin") && pass.equals("admin"))){
             Usuario_Administrador ua=new Usuario_Administrador();
+            JOptionPane.showMessageDialog(null, "Bienvenido administrador");
+            log=true;
             ua.setVisible(true);
             this.setVisible(false);
-        }else{
-            //JOptionPane.showMessageDialog(null, "Error");
             
+        }else{
+    
             for(int i=0;i<Proyecto1_201602598.longi;i++){
                 
                 String u=new String(Proyecto1_201602598.usuario[i]);
@@ -129,28 +132,50 @@ PantallaPrincipal pal=new PantallaPrincipal();
                     
                     if((coordenada[0].equals(a))&&(coordenada[5].equals(pass))){
                         JOptionPane.showMessageDialog(null, "Bienvenido "+a);
+                        log=true;
                         Usuario_Normal un=new Usuario_Normal();
                         String identificador=coordenada[6];
                         un.setVisible(true);
                         this.setVisible(false);
                         un.iden(Integer.parseInt(coordenada[6]));
                         
+                        break;
                     }else if((coordenada[0].equals(a))&&!(coordenada[5].equals(pass))){
                         JOptionPane.showMessageDialog(null, "La contraseña es erronea","Error",WARNING_MESSAGE);
+                        log=true;
+                        txtusuario.setText(null);
+                        txtpassw.setText(null);
+                        break;
                         
                     }else if(!(coordenada[0].equals(a))&&(coordenada[5].equals(pass))){
                         JOptionPane.showMessageDialog(null, "El usuario es incorrecto","Error",WARNING_MESSAGE);
+                        log=true;
+                        txtusuario.setText(null);
+                        txtpassw.setText(null);
+                        break;
                     }else{
                         JOptionPane.showMessageDialog(null, "No existe este usuario, si desea crear uno "
                                 + "nuevo debe ir al 5to nivel de la Biblioteca Central","Error "
                                 ,WARNING_MESSAGE);
+                        txtusuario.setText(null);
+                        txtpassw.setText(null);
+                        break;
                     }
-                
+             
                 
             }
        
     }//GEN-LAST:event_btningresarActionPerformed
+        if(log==false){
+        JOptionPane.showMessageDialog(null, "No existe este usuario, si desea crear uno "
+                                + "nuevo debe ir al 5to nivel de la Biblioteca Central","Error "
+                                ,WARNING_MESSAGE);
+        txtusuario.setText(null);
+                        txtpassw.setText(null);
+                        
     }
+    }
+    
     /**
      * @param args the command line arguments
      */

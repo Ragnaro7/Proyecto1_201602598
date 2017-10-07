@@ -82,6 +82,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         btnabout.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnabout.setText("About");
+        btnabout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaboutActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnabout, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, -1));
 
         lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1_201602598/Imagenes/fondo.jpg"))); // NOI18N
@@ -102,6 +107,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         log.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnloginActionPerformed
+
+    private void btnaboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaboutActionPerformed
+        // TODO add your handling code here:
+        About about=new About();
+        about.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnaboutActionPerformed
 
     /**
      * @param args the command line arguments
